@@ -1,0 +1,40 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.planapp.MainInicio" >
+
+    <item 
+        android:id="@+id/menu_notificaciones"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_web_site"
+        android:title="@string/notificar"/>
+    
+    <item
+        android:id="@+id/menu_search"
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/busqueda"/>
+    <item
+        android:id="@+id/menu_profile"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_person"
+        android:title="@string/perfil"/>
+    
+    <item
+        android:id="@+id/menu_historial"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_person"
+        android:title="@string/historial"/>
+        
+    <item
+        android:id="@+id/menu_pendientes"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_person"
+        android:title="@string/pendientes"/>
+    <item
+        android:id="@+id/menu_ajustes"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_person"
+        android:title="@string/ajustes"/>
+    
+
+</menu>
