@@ -8,6 +8,7 @@ import android.os.Bundle;
 //import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class AgregarActivity extends ActionBarActivity {
@@ -16,6 +17,8 @@ public class AgregarActivity extends ActionBarActivity {
 	EditText titulo, contenido;
 	String datos[];
 	
+	Button volver=(Button)findViewById(R.id.volver);
+	
 	// Ruta y Nombre de la activad a la cual voy a enviar la info.
 	final static String ACT_INFO = "com.example.glock.InsertarActivity.java"; 
 	
@@ -23,6 +26,16 @@ public class AgregarActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_agregar);
+		
+		//--Boton Volver--//
+        volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent button_volver = new Intent (AgregarActivity.this, MainActivity.class);
+                startActivity(button_volver);
+            }
+        });
 		
 		//---Pasar variables ---//
 		titulo=(EditText)findViewById(R.id.titulo);

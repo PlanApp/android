@@ -15,6 +15,10 @@ public class Notas{
 		return contenido;
 	}
 	
+	public void setId(String x){
+		this.id=x;
+	}
+	
 	public void setTitulo(String x){
 		this.titulo=x;
 	}
