@@ -11,5 +11,6 @@
     <string name="titulo">Titulo</string>
     <string name="contenido">Contenido</string>
     <string name="title_activity_insertar">InsertarActivity</string>
+    <string name="insertado">Insertado</string>
 
 </resources>

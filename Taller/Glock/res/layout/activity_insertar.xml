@@ -9,8 +9,38 @@
     tools:context="com.example.glock.InsertarActivity" >
 
     <TextView
+        android:id="@+id/mostrarTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/mostrarEdo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mostrarTitulo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/mostrarEdo"
+        android:layout_alignTop="@+id/mostrarTitulo"
+        android:text="@string/insertado" />
+
+    <Button
+        android:id="@+id/volver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_marginLeft="21dp"
+        android:layout_toRightOf="@+id/mostrarTitulo"
+        android:text="Volver" />
 
 </RelativeLayout>

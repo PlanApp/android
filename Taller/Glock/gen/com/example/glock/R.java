@@ -1091,9 +1091,9 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050044;
+        public static final int action_settings=0x7f050047;
         public static final int activity_chooser_view_content=0x7f050025;
-        public static final int agregar=0x7f050043;
+        public static final int agregar=0x7f050046;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
         public static final int button1=0x7f050040;
@@ -1117,6 +1117,8 @@ containing a value of this type.
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
+        public static final int mostrarEdo=0x7f050042;
+        public static final int mostrarTitulo=0x7f050041;
         public static final int never=0x7f050009;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
@@ -1140,14 +1142,15 @@ containing a value of this type.
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
-        public static final int textView1=0x7f050041;
+        public static final int textView1=0x7f050043;
         public static final int textView2=0x7f05003c;
         public static final int title=0x7f05002b;
         public static final int titulo=0x7f05003d;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
-        public static final int ver=0x7f050042;
+        public static final int ver=0x7f050045;
+        public static final int volver=0x7f050044;
         public static final int withText=0x7f05000c;
     }
     public static final class integer {
@@ -1257,6 +1260,7 @@ containing a value of this type.
         public static final int app_name=0x7f0a000d;
         public static final int contenido=0x7f0a0015;
         public static final int hello_world=0x7f0a000e;
+        public static final int insertado=0x7f0a0017;
         public static final int nueva_nota=0x7f0a0013;
         public static final int title_activity_agregar=0x7f0a0011;
         public static final int title_activity_insertar=0x7f0a0016;
