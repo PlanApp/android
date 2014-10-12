@@ -30,6 +30,10 @@
             android:name=".VerActivity"
             android:label="@string/title_activity_ver" >
         </activity>
+        <activity
+            android:name=".InsertarActivity"
+            android:label="@string/title_activity_insertar" >
+        </activity>
     </application>
 
 </manifest>

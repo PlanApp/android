@@ -7,5 +7,9 @@
     <string name="version">Gbloc Beta V 0.5</string>
     <string name="title_activity_agregar">AgregarActivity</string>
     <string name="title_activity_ver">VerActivity</string>
+    <string name="nueva_nota">Nueva Nota</string>
+    <string name="titulo">Titulo</string>
+    <string name="contenido">Contenido</string>
+    <string name="title_activity_insertar">InsertarActivity</string>
 
 </resources>
