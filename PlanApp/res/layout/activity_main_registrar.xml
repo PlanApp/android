@@ -63,7 +63,7 @@
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/fecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/EditText01"
@@ -96,6 +96,7 @@
        android:layout_marginTop="14dp"
        android:orientation="horizontal" >
 
+<<<<<<< HEAD
     
        
        <RadioButton
@@ -126,3 +127,34 @@
        android:textSize="20sp" />
 
 </RelativeLayout>
+=======
+    <RadioButton
+        android:id="@+id/sexoh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:text="@string/H" />
+
+    <RadioButton
+        android:id="@+id/sexom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioButton2"
+        android:layout_alignBottom="@+id/radioButton2"
+        android:layout_alignRight="@+id/editText1"
+        android:layout_marginRight="20dp"
+        android:text="@string/M" />
+
+    <Button
+        android:id="@+id/send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignRight="@+id/editText1"
+        android:layout_below="@+id/radioButton2"
+        android:layout_marginTop="22dp"
+        android:text="@string/registrar" />
+    
+    </RelativeLayout>
+>>>>>>> FETCH_HEAD
