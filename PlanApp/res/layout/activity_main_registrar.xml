@@ -50,6 +50,18 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword" />
+    
+      <TextView
+		android:id="@+id/textView2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignBottom="@+id/radioGender"
+		android:layout_alignTop="@+id/radioGender"
+		android:layout_toLeftOf="@+id/textView1"
+		android:gravity="center"
+		android:text="@string/sexo"
+		android:textSize="20sp" />
+      
 
     <EditText
         android:id="@+id/EditText01"
@@ -96,38 +108,8 @@
        android:layout_marginTop="14dp"
        android:orientation="horizontal" >
 
-<<<<<<< HEAD
-    
-       
-       <RadioButton
-           android:id="@+id/radioButton2"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginLeft="27dp"          
-           android:text="@string/H" />
 
-       <RadioButton
-           android:id="@+id/radioButton1"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginLeft="27dp"
-           android:text="@string/M" />
 
-   </RadioGroup>
-
-   <TextView
-       android:id="@+id/textView2"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignBottom="@+id/radioGender"
-       android:layout_alignTop="@+id/radioGender"
-       android:layout_toLeftOf="@+id/textView1"
-       android:gravity="center"
-       android:text="@string/sexo"
-       android:textSize="20sp" />
-
-</RelativeLayout>
-=======
     <RadioButton
         android:id="@+id/sexoh"
         android:layout_width="wrap_content"
@@ -146,6 +128,8 @@
         android:layout_marginRight="20dp"
         android:text="@string/M" />
 
+    </RadioGroup>
+    
     <Button
         android:id="@+id/send"
         android:layout_width="wrap_content"
@@ -156,5 +140,4 @@
         android:layout_marginTop="22dp"
         android:text="@string/registrar" />
     
-    </RelativeLayout>
->>>>>>> FETCH_HEAD
+</RelativeLayout>
