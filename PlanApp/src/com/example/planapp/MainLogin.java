@@ -69,7 +69,7 @@ public class MainLogin extends Activity {
 				Log.d("MainLogin", "Paso EditText");
 				
 				//Conexion conn = new Conexion();
-				Logs.d("MainLogin", "Paso New Conexion");
+				Log.v("MainLogin", "Paso New Conexion");
 				//new Login().execute(correo);
 				//String id=conn.login(correo.getText().toString(), pass.getText().toString());
 				
@@ -108,6 +108,14 @@ public class MainLogin extends Activity {
 		    		HttpResponse response = httpclient.execute(httppost);
 		    		String responseAsText = EntityUtils.toString(response.getEntity());
 		    		
+		    	    try {
+		    	          JSONObject json = new JSONObject(responseAsText);
+		    	          Log.v("MainLogin", json.getString("edo"));
+		    	        
+		    	      } catch (Exception e) {
+		    	        e.printStackTrace();
+		    	      }
+		    		
 		    		/*
 		    		String json=Html.fromHtml(EntityUtils.toString(response.getEntity())).toString();
 		    		JSONTokener tokener=new JSONTokener(json);
@@ -129,7 +137,13 @@ public class MainLogin extends Activity {
 		    		Log.v("MainLogin", "Response from server: " + response.toString());
 		    		Log.v("MainLogin", "String :"+responseAsText);
 		    		//-----------
-		    		
+		    		/*
+		    		JSONObject mainObject = new JSONObject(responseAsText);
+
+		    		JSONObject universityObject = mainObject.getJsonObject("login");
+		    		JSONString name = universityObject.getJsonString("mail");  
+		    		JSONString edo = universityObject.getJsonString("edo");
+		    		*/
 		    		//-----------
 		    		
 		    		
