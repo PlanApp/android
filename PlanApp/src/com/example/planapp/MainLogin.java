@@ -72,6 +72,18 @@ public class MainLogin extends Activity {
 								Log.d("MainLogin", "Va el intent");
 								startActivity(ir_a);
 							}
+							else{
+								//MENSAJE EN PANTALLA
+								MainLogin.this.runOnUiThread(new Runnable() {
+								    public void run() {
+								        //Toast.makeText(activity, "Hello", Toast.LENGTH_SHORT).show();
+								    	Toast toast = Toast.makeText(MainLogin.this, "Datos incorrectos", Toast.LENGTH_SHORT);
+									    toast.show();
+								    }
+								});
+							    //Toast toast = Toast.makeText(MainLogin.this, "Datos incorrectos", Toast.LENGTH_SHORT);
+							    //toast.show();
+							}
 							//############
 				  	    }
 				  	    
