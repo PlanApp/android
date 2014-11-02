@@ -53,19 +53,17 @@ public class MainLogin extends Activity {
 				Log.d("MainLogin", "Paso EditText");
 				
 				Log.v("MainLogin", "Paso New Conexion");
-				//new Login().execute(correo);
-				
+
+				  //NUEVO THREAD PARA ENVIAR EL POST 
 				  new Thread(new Runnable() {
-				  	    public void run(){ 
+				  	    public void run(){
+				  	    	//LLAMO A LA FUNCION QUE ENVIA LOS DATOS
 					   		user = httpLogin(correo.getText().toString(), pass.getText().toString());
-					    	//httpLogin(correo.getText().toString(), pass.getText().toString());
-					   		Log.v("MainLogin","edo antes:"+user.getEdo() );
-					   		//###########
-							Log.v("MainLogin","edo fuera:"+user.getEdo() );
-							//if(user.getEdo().toString() == "ok"){
+					   		
+					   		
+					   		//VEO LA RESPUESTA DE LA FUNCION DE LOGIN
 							if(user.getEdo().toString().equals("ok")){
-								Log.v("MainLogin", "Entro");
-								//CAMBIA DE VISTA
+								//CAMBIA DE VISTA SI LOS DATOS SON CORRECTOS
 								Intent ir_a = new Intent (MainLogin.this, MainGenPanorama.class);
 								ir_a.putExtra("id", user.getID());
 								ir_a.putExtra("mail", user.getMail());
@@ -73,7 +71,7 @@ public class MainLogin extends Activity {
 								startActivity(ir_a);
 							}
 							else{
-								//MENSAJE EN PANTALLA
+								//MENSAJE EN PANTALLA DE DATOS INCORRECTOS
 								MainLogin.this.runOnUiThread(new Runnable() {
 								    public void run() {
 								        //Toast.makeText(activity, "Hello", Toast.LENGTH_SHORT).show();
@@ -81,34 +79,13 @@ public class MainLogin extends Activity {
 									    toast.show();
 								    }
 								});
-							    //Toast toast = Toast.makeText(MainLogin.this, "Datos incorrectos", Toast.LENGTH_SHORT);
-							    //toast.show();
 							}
-							//############
 				  	    }
 				  	    
 				  }).start();
-				  
-				/*  
-				Log.v("MainLogin","edo fuera:"+user.getEdo() );
-				if(user.getEdo().toString() == "ok"){
-					//CAMBIA DE VISTA
-					Intent ir_a = new Intent (MainLogin.this, MainGenPanorama.class);
-					ir_a.putExtra("id", user.getID());
-					ir_a.putExtra("mail", user.getMail());
-					Log.d("MainLogin", "Va el intent");
-					startActivity(ir_a);
-				}
-				else{
-					//MENSAJE EN PANTALLA
-				    Toast toast = Toast.makeText(MainLogin.this, "Datos incorrectos", Toast.LENGTH_SHORT);
-				    toast.show();
-				}*/
-				
 			}
 			
 		    public Usuario httpLogin(String mail, String pass) {
-			//public void httpLogin(String mail, String pass) {
 		    	Usuario u= new Usuario();
 		    	HttpClient httpclient = new DefaultHttpClient();
 		    	HttpPost httppost = new HttpPost("http://www.planapp.cl:5000/login");
@@ -128,19 +105,9 @@ public class MainLogin extends Activity {
 		    	          u.setEdo(json.getString("edo"));
 		    	          u.setID(json.getString("id"));
 		    	          u.setMail(json.getString("mail"));
-		    	          Log.v("MainLogin", "EDO INTERNO:"+json.getString("edo"));
-		    	          	
-		    	          //--------
-		    	          //--------
-		    	          
-		    	          
 		    	      } catch (Exception e) {
 		    	        e.printStackTrace();
 		    	      }
-		    		
-		    		//Log.v("MainLogin", "Response from server: " + response.toString());
-		    		//Log.v("MainLogin", "String :"+responseAsText);
-
 		    	} catch (ClientProtocolException e) {
 		    		
 		    	} catch (IOException e) {
@@ -160,9 +127,5 @@ public class MainLogin extends Activity {
 				startActivity(intent);
 			}
 		});
-
-	
-	
-
 	}	
 }
