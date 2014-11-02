@@ -2,7 +2,11 @@ package com.example.planapp;
 
 
 class Usuario{
-	private String id,mail, password, fecha_nacimiento, sexo;
+	private String id,mail, password, fecha_nacimiento, sexo, edo;
+	
+	public String getEdo(){
+		return this.edo;
+	}
 	
 	public String getID(){
 		return this.id;
@@ -42,5 +46,9 @@ class Usuario{
 	
 	public void setSexo(String sexo){
 		this.sexo=sexo;
+	}
+	
+	public void setEdo(String edo){
+		this.edo=edo;
 	}
 }
