@@ -28,7 +28,6 @@ public class MainLogin extends Activity {
 		Button ButtonRegistrar = (Button) findViewById(R.id.ButtonRegistrar);
 		// Fijamos un evento onclick para el button ingresar, cada vez que
 		// lo pulsemos se llamara a este metodo (que abrira una actividad)
-	    Log.d("MainLogin", "Cargando Boton Ingresar");
 	    ButtonIngresar.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {

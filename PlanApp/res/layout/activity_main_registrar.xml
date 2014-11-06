@@ -52,7 +52,7 @@
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/EditText01"
+        android:id="@+id/passconfirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
@@ -63,7 +63,7 @@
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/fecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/EditText01"
@@ -75,7 +75,7 @@
         android:inputType="date" />
 
    <Button
-       android:id="@+id/button1"
+       android:id="@+id/BotonRegistrar"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_alignLeft="@+id/textView2"
