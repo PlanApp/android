@@ -2,6 +2,7 @@ package com.example.planapp;
 
 
 class Usuario{
+	
 	private String id,mail, password, fecha_nacimiento, sexo, edo;
 	
 	public String getEdo(){
