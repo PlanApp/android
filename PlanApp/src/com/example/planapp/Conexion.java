@@ -20,7 +20,7 @@ import android.util.Log;
 
 class Conexion{
 	private String url="http://www.planapp.cl:5000/";
-	
+
     public Usuario httpLogin(String mail, String pass) {
     	Usuario u= new Usuario();
     	HttpClient httpclient = new DefaultHttpClient();
@@ -32,13 +32,13 @@ class Conexion{
     		nameValuePairs.add(new BasicNameValuePair("mail", mail));
     		nameValuePairs.add(new BasicNameValuePair("password", pass));
     		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-    		
+
     		HttpResponse response = httpclient.execute(httppost);
     		String responseAsText = EntityUtils.toString(response.getEntity());
-    		
+
     	    try {
     	          JSONObject json = new JSONObject(responseAsText);
-    	          
+
     	          u.setEdo(json.getString("edo"));
     	          u.setID(json.getString("id"));
     	          u.setMail(json.getString("mail"));
@@ -46,10 +46,46 @@ class Conexion{
     	        e.printStackTrace();
     	      }
     	} catch (ClientProtocolException e) {
-    		
+
     	} catch (IOException e) {
 
     	}
 		return u;
-    }	
+    }
+
+
+
+		public Usuario httpRegistro(String mail, String nombre, String pass, String fecha_naci, String sexo) {
+			Usuario u= new Usuario();
+			HttpClient httpclient = new DefaultHttpClient();
+			Log.v("Conexion", "Espenado respuesta ...");
+			HttpPost httppost = new HttpPost(url+"registro");
+
+			try {
+				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+				nameValuePairs.add(new BasicNameValuePair("mail", mail));
+				nameValuePairs.add(new BasicNameValuePair("nombre", nombre));
+				nameValuePairs.add(new BasicNameValuePair("password", pass));
+				nameValuePairs.add(new BasicNameValuePair("fecha_nacimiento", fecha_naci));
+				nameValuePairs.add(new BasicNameValuePair("sexo", sexo));
+				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+				HttpResponse response = httpclient.execute(httppost);
+				String responseAsText = EntityUtils.toString(response.getEntity());
+
+					try {
+								//CAPTURA DE RESPUESTA
+								JSONObject json = new JSONObject(responseAsText);
+								u.setEdo(json.getString("edo"));
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+			} catch (ClientProtocolException e) {
+
+			} catch (IOException e) {
+
+			}
+		return u;
+		}
+
 }
