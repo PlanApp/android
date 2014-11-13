@@ -45,7 +45,7 @@ public class MainLogin extends Activity {
 					   		//VEO LA RESPUESTA DE LA FUNCION DE LOGIN
 							if(user.getEdo().toString().equals("ok")){
 								//CAMBIA DE VISTA SI LOS DATOS SON CORRECTOS
-								Intent ir_a = new Intent (MainLogin.this, MainGenPanorama.class);
+								Intent ir_a = new Intent (MainLogin.this, MainLogin.class);
 								ir_a.putExtra("id", user.getID());
 								ir_a.putExtra("mail", user.getMail());
 								Log.d("MainLogin", "Va el intent");

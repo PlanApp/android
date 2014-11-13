@@ -76,7 +76,7 @@ class Conexion{
 					try {
 								//CAPTURA DE RESPUESTA
 								JSONObject json = new JSONObject(responseAsText);
-								u.setEdo(json.getString("edo"));
+								u.setEdo(json.getString("estado"));
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
