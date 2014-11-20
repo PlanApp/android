@@ -16,23 +16,24 @@
     <string name="H">H</string>
     <string name="nombre">Nombre</string>
     <string name="busqueda">Búsqueda</string>
-	<string name="perfil">Perfil</string>
-	<string name="notificar">Notificación</string>
-	<string name="historial">Historial</string>
-	<string name="pendientes">Pendientes</string>
-	<string name="ajustes">Ajustes</string>
-	<string name="generarpanorama">Generar Panorama</string>
-	<string name="acompanante">Acompañante</string>
-	<string name="acompanante_inicio">Elija un acompañante</string>
-	<string name="amiga">Amiga</string>
-	<string name="amigo">Amigo</string>
-	<string name="amigos">Amigos</string>
-	<string name="trabajo">Trabajo</string>
-	<string name="familia">Familia</string>
-	<string name="pareja">Pareja</string>
-	<string name="cita">Cita</string>
-	<string name="presupuesto">Presupuesto disponible</string>
-	<string name="generar">Generar</string>
-	<string name="ahora">Ahora</string>
-		
+    <string name="perfil">Perfil</string>
+    <string name="notificar">Notificación</string>
+    <string name="historial">Historial</string>
+    <string name="pendientes">Pendientes</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="generarpanorama">Generar Panorama</string>
+    <string name="acompanante">Acompañante</string>
+    <string name="acompanante_inicio">Elija un acompañante</string>
+    <string name="amiga">Amiga</string>
+    <string name="amigo">Amigo</string>
+    <string name="amigos">Amigos</string>
+    <string name="trabajo">Trabajo</string>
+    <string name="familia">Familia</string>
+    <string name="pareja">Pareja</string>
+    <string name="cita">Cita</string>
+    <string name="presupuesto">Presupuesto disponible</string>
+    <string name="generar">Generar</string>
+    <string name="ahora">Ahora</string>
+    <string name="title_activity_main__mapa">Main_Mapa</string>
+
 </resources>
