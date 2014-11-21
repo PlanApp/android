@@ -34,18 +34,12 @@
             android:name=".MainRegistrar"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
-        <activity android:name=".MainProfile" >
-        </activity>
-        <activity android:name=".MainGenPanorama" >
-        </activity>
-        <activity android:name=".MainGenerarHoy" >
-        </activity>
-        <activity android:name=".Main_panorama" >
-        </activity>
-        <activity android:name=".Main_panoramas" >
-        </activity>
-        <activity android:name=".Main_actividad" >
-        </activity>
+        <activity android:name=".MainProfile" ></activity>
+        <activity android:name=".MainGenPanorama" ></activity>
+        <activity android:name=".MainGenerarHoy" ></activity>
+        <activity android:name=".Main_panorama" ></activity>
+        <activity android:name=".Main_panoramas" ></activity>
+        <activity android:name=".Main_actividad" ></activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

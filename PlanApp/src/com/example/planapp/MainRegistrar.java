@@ -30,7 +30,7 @@ public class MainRegistrar extends Activity {
 	    // TODO Auto-generated method stub
 	    //RadioGroup radioGender = (RadioGroup) findViewById(R.id.radioGender);
 	    radioGender = (RadioGroup) findViewById(R.id.radioGender);
-	    Button ButtonRegistrar= (Button) findViewById(R.id.BotonRegistrar);  
+	    Button ButtonRegistrar= (Button) findViewById(R.id.ButtonRegistrar);  
 	    
 	    //Registro
 	    ButtonRegistrar.setOnClickListener(new OnClickListener(){	
@@ -40,7 +40,7 @@ public class MainRegistrar extends Activity {
 				nombre= (EditText)  findViewById(R.id.nombre);
 				correo= (EditText)  findViewById(R.id.correo);
 				pass = (EditText)  findViewById(R.id.pass);
-				passconfirmar= (EditText)  findViewById(R.id.passconfirmar);
+				passconfirmar= (EditText) findViewById(R.id.passconfirmar);
 				fecha= (EditText)  findViewById(R.id.fecha);
 				int selectedId = radioGender.getCheckedRadioButtonId();
 				
