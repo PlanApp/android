@@ -10,7 +10,8 @@
     <string name="registrar">Registrar</string>
     <string name="ingresar">Ingresar</string>
     <string name="planapp">PlanApp</string>
-    <string name="fecha">12/02/2014</string>
+    <string name="fecha">mm/dd/aaaa</string>
+     <string name="Botonfecha">Fecha Nac</string>
     <string name="sexo">Sexo</string>
     <string name="M">M</string>
     <string name="H">H</string>
