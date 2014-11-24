@@ -28,7 +28,6 @@ public class MainGenPanorama extends Activity {
 				Intent intent = new Intent(MainGenPanorama.this, MainGenerarHoy.class);
 				
 				//obtener los parametros de user y pass
-
 				startActivity(intent);				
 			}
 	    	

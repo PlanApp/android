@@ -55,7 +55,7 @@ class Conexion{
 
 
 
-	public Usuario httpRegistro(String mail, String nombre, String pass, String fecha_naci, String sexo) {
+		public Usuario httpRegistro(String mail, String nombre, String pass, String fecha_naci, String sexo) {
 			Usuario u= new Usuario();
 			HttpClient httpclient = new DefaultHttpClient();
 			Log.v("Conexion", "Espenado respuesta ...");
@@ -76,7 +76,7 @@ class Conexion{
 					try {
 								//CAPTURA DE RESPUESTA
 								JSONObject json = new JSONObject(responseAsText);
-								u.setEdo(json.getString("estado"));
+								u.setEdo(json.getString("edo"));
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
