@@ -1,7 +1,11 @@
 package com.example.planapp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +21,9 @@ public class MainGenPanorama extends Activity {
 	int position=0;
 	Spinner spacompanantes;
 	EditText dinero;
+	LocationManager locManager;
+	LocationListener locListener;
+	
     String[] acompanantes = {
     	"---",	
     	"Trabajo",
@@ -61,6 +68,25 @@ public class MainGenPanorama extends Activity {
         ButtonGenerar.setOnClickListener(new OnClickListener(){
         				@Override
         				public void onClick(View v) {
+        					
+        					//--LOCALIZACIÓN--//
+        					//Obtenemos una referencia al LocationManager
+        					locManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        					
+        					//Obtenemos la ultima posicion conocida
+        			    	Location loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        			    	
+        			    	//Mostramos la ultima posicion conocida
+        			    	if(loc != null){
+        			    		Log.v("MainGenPanorama", "Latitud"+String.valueOf(loc.getLatitude())+"Longitud"+String.valueOf(loc.getLongitude())+"Presicion"+String.valueOf(loc.getAccuracy()));
+        			    	}
+        			    	else{
+        			    		Log.v("MainGenPanorama", "Latitud: SinDatos, Longitud: SinDatos, Presicion:SinDatos");
+        			    	}
+        			    	
+        			    	
+        					//-- FIN LOCALIZACIÓN--//
+        					
         					Log.v("MainGenPanorama", "spin :"+acompanantes[+position]+" dinero :"+dinero.getText().toString());
 							Intent ir_a = new Intent (MainGenPanorama.this, MainPanoramas.class);
 							ir_a.putExtra("acompanantes", acompanantes[+position]);
