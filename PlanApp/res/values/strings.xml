@@ -35,6 +35,11 @@
     <string name="presupuesto">Presupuesto disponible</string>
     <string name="generar">Generar</string>
     <string name="ahora">Ahora</string>
+    <string name="longitud">Longitud</string>
+    <string name="latitud">Latitud</string>
+    <string name="id">ID</string>
+    <string name="nada">-</string>
     <string name="title_activity_main_panoramas">MainPanoramas</string>
+    
 
 </resources>

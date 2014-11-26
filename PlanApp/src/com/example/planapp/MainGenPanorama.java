@@ -34,11 +34,20 @@ public class MainGenPanorama extends Activity {
         "Cita"
     };
     
-    String latitud, longitud;
+    String latitud;
+    String longitud;
+    String id_usuario;
+    String mail;
     
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
+		//OBTENER DATOS DE LA OTRA VISTA
+		Intent info=getIntent();
+		id_usuario=info.getExtras().getString("id");
+		mail=info.getExtras().getString("mail");
+		
 	    super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genpanorama);
         
@@ -86,6 +95,8 @@ public class MainGenPanorama extends Activity {
         			    	}
         			    	else{
         			    		Log.v("MainGenPanorama", "Latitud: SinDatos, Longitud: SinDatos, Presicion:SinDatos");
+        			    		latitud="SinDatos";
+        			    		longitud="SinDatos";
         			    	}
         			    	
         			    	
@@ -93,10 +104,12 @@ public class MainGenPanorama extends Activity {
         					
         					Log.v("MainGenPanorama", "spin :"+acompanantes[+position]+" dinero :"+dinero.getText().toString());
 							Intent ir_a = new Intent (MainGenPanorama.this, MainPanoramas.class);
-							ir_a.putExtra("acompanantes", acompanantes[+position]);
+							ir_a.putExtra("acompanante", acompanantes[+position]);
 							ir_a.putExtra("dinero", dinero.getText().toString());
 							ir_a.putExtra("latitud", latitud);
 							ir_a.putExtra("longitud", longitud);
+							ir_a.putExtra("id", id_usuario);
+							ir_a.putExtra(mail, mail);
 							Log.d("MainGenPanoramas", "Va el intent Panoramas");
 							startActivity(ir_a);
         				}
