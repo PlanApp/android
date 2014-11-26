@@ -1,7 +1,11 @@
 package com.example.planapp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +21,10 @@ public class MainLogin extends Activity {
 	EditText correo, pass;
 	Usuario user = new Usuario();
 	//String edo;
+	
+	//INICIO GEO//
+	LocationManager locManager;
+	LocationListener locListener;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -76,4 +84,74 @@ public class MainLogin extends Activity {
 			}
 		});
 	}	
+	
+	
+	 void comenzarLocalizacion()
+	    {
+	    	//Obtenemos una referencia al LocationManager
+	    	locManager =(LocationManager)getSystemService(Context.LOCATION_SERVICE);
+	    	
+	    	//Obtenemos la �ltima posici�n conocida
+	    	Location loc =locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+	    	
+	    	//Mostramos la �ltima posici�n conocida
+	    	//mostrarPosicion(loc);
+	    	
+	    	//Nos registramos para recibir actualizaciones de la posici�n
+	    	this.locListener = new LocationListener() {
+		    	public void onLocationChanged(Location location) {
+		    		//mostrarPosicion(location);
+		    		Log.v("MainLogin",  String.valueOf(location.getLatitude())+" "+String.valueOf(location.getLongitude()));
+		    	}
+		    	public void onProviderDisabled(String provider){
+		    		Log.v("", "Provider OFF ");
+		    		/*
+		    		Toast toast = Toast.makeText(this, "Provider OFF", Toast.LENGTH_SHORT);
+				    toast.show();
+				    */
+		    		//this.estado.setText("Provider OFF");
+		    	}
+		    	public void onProviderEnabled(String provider){
+		    		Log.v("", "Provider ON ");
+		    		/*
+		    		Toast toast = Toast.makeText(this, "Provider ON ", Toast.LENGTH_SHORT);
+				    toast.show();
+				    */	    		
+		    		//this.estado.setText("Provider ON ");
+		    	}
+		    	
+		    	
+		    	public void onStatusChanged(String provider, int status, Bundle extras){
+		    		Log.v("", "Provider Status: " + status);
+		    		
+		    		//Toast toast = Toast.makeText(this, "Provider Status: " + status, Toast.LENGTH_SHORT);
+				    //toast.show();
+				    
+		    		//estado.setText("Provider Status: " + status);
+		    	}
+	    	};
+	    	
+	    	locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 30000, 0, locListener);
+	    }
+	    /* 
+	    private void mostrarPosicion(Location loc) {
+	    	if(loc != null){
+	    		//lblLatitud.setText("Latitud: " + String.valueOf(loc.getLatitude()));
+	    		//lblLongitud.setText("Longitud: " + String.valueOf(loc.getLongitude()));
+	    		//lblPrecision.setText("Precision: " + String.valueOf(loc.getAccuracy()));
+	    		Log.i("", String.valueOf(loc.getLatitude() + " - " + String.valueOf(loc.getLongitude())));
+	    		latitud=String.valueOf(loc.getLatitude());
+	    		longitud=String.valueOf(loc.getLongitude());
+	    		presicion=String.valueOf(loc.getAccuracy());
+	    	}
+	    	else
+	    	{
+	    		//lblLatitud.setText("Latitud: (sin_datos)");
+	    		//lblLongitud.setText("Longitud: (sin_datos)");
+	    		//lblPrecision.setText("Precision: (sin_datos)");
+	    		latitud="SinDatos";
+	    		longitud="SinDatos";
+	    		presicion="SinDatos";
+	    	}
+	    }*/
 }
