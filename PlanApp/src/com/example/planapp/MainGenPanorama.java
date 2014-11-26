@@ -34,6 +34,8 @@ public class MainGenPanorama extends Activity {
         "Cita"
     };
     
+    String latitud, longitud;
+    
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,8 @@ public class MainGenPanorama extends Activity {
         			    	//Mostramos la ultima posicion conocida
         			    	if(loc != null){
         			    		Log.v("MainGenPanorama", "Latitud"+String.valueOf(loc.getLatitude())+"Longitud"+String.valueOf(loc.getLongitude())+"Presicion"+String.valueOf(loc.getAccuracy()));
+        			    		latitud=String.valueOf(loc.getLatitude());
+        			    		longitud=String.valueOf(loc.getLongitude());
         			    	}
         			    	else{
         			    		Log.v("MainGenPanorama", "Latitud: SinDatos, Longitud: SinDatos, Presicion:SinDatos");
@@ -91,6 +95,8 @@ public class MainGenPanorama extends Activity {
 							Intent ir_a = new Intent (MainGenPanorama.this, MainPanoramas.class);
 							ir_a.putExtra("acompanantes", acompanantes[+position]);
 							ir_a.putExtra("dinero", dinero.getText().toString());
+							ir_a.putExtra("latitud", latitud);
+							ir_a.putExtra("longitud", longitud);
 							Log.d("MainGenPanoramas", "Va el intent Panoramas");
 							startActivity(ir_a);
         				}
