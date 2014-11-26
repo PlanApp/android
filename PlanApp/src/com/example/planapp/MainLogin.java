@@ -85,9 +85,9 @@ public class MainLogin extends Activity {
 		});
 	}	
 	
-	
+	 //--- GEOLOCALIZACIÓN ---//
 	 void comenzarLocalizacion()
-	    {
+	 {
 	    	//Obtenemos una referencia al LocationManager
 	    	locManager =(LocationManager)getSystemService(Context.LOCATION_SERVICE);
 	    	
@@ -133,25 +133,5 @@ public class MainLogin extends Activity {
 	    	
 	    	locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 30000, 0, locListener);
 	    }
-	    /* 
-	    private void mostrarPosicion(Location loc) {
-	    	if(loc != null){
-	    		//lblLatitud.setText("Latitud: " + String.valueOf(loc.getLatitude()));
-	    		//lblLongitud.setText("Longitud: " + String.valueOf(loc.getLongitude()));
-	    		//lblPrecision.setText("Precision: " + String.valueOf(loc.getAccuracy()));
-	    		Log.i("", String.valueOf(loc.getLatitude() + " - " + String.valueOf(loc.getLongitude())));
-	    		latitud=String.valueOf(loc.getLatitude());
-	    		longitud=String.valueOf(loc.getLongitude());
-	    		presicion=String.valueOf(loc.getAccuracy());
-	    	}
-	    	else
-	    	{
-	    		//lblLatitud.setText("Latitud: (sin_datos)");
-	    		//lblLongitud.setText("Longitud: (sin_datos)");
-	    		//lblPrecision.setText("Precision: (sin_datos)");
-	    		latitud="SinDatos";
-	    		longitud="SinDatos";
-	    		presicion="SinDatos";
-	    	}
-	    }*/
+	    //--- FIN GEOLOCALIZACIÓN --//
 }

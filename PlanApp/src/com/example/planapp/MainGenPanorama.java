@@ -86,31 +86,6 @@ public class MainGenPanorama extends Activity {
         					
         					//--LOCALIZACIÓN--//
         					comenzarLocalizacion();
-        					//Obtenemos una referencia al LocationManager
-        					////locManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        					
-        					/*
-        					while (latitud != "SinDato"){
-        						comenzarLocalizacion();
-        						Log.v("MainGenPanorama", "Esprando geo..");
-        					}*/
-        					//Obtenemos la ultima posicion conocida
-        			    	/////Location loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        			    	
-        			    	//Mostramos la ultima posicion conocida
-        					/*
-        			    	if(loc != null){
-        			    		Log.v("MainGenPanorama", "Latitud"+String.valueOf(loc.getLatitude())+"Longitud"+String.valueOf(loc.getLongitude())+"Presicion"+String.valueOf(loc.getAccuracy()));
-        			    		latitud=String.valueOf(loc.getLatitude());
-        			    		longitud=String.valueOf(loc.getLongitude());
-        			    	}
-        			    	else{
-        			    		Log.v("MainGenPanorama", "Latitud: SinDatos, Longitud: SinDatos, Presicion:SinDatos");
-        			    		latitud="SinDatos";
-        			    		longitud="SinDatos";
-        			    	}*/
-
-        			    	
         					//-- FIN LOCALIZACIÓN--//
         					
         					Log.v("MainGenPanorama", "spin :"+acompanantes[+position]+" dinero :"+dinero.getText().toString());
@@ -127,8 +102,9 @@ public class MainGenPanorama extends Activity {
         });
 	}
 	
+	 // --- GEOLOCALIZACION ---//
 	 void comenzarLocalizacion()
-	    {
+	 {
 	    	//Obtenemos una referencia al LocationManager
 	    	locManager =(LocationManager)getSystemService(Context.LOCATION_SERVICE);
 	    	
@@ -194,5 +170,5 @@ public class MainGenPanorama extends Activity {
 	    		presicion="SinDatos";
 	    	}
 	    }
-
+	    //---FIN GEOLOCALIZACIÓN ---//
 }
