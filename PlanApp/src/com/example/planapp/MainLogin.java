@@ -31,6 +31,7 @@ public class MainLogin extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_main_login);
+	    comenzarLocalizacion();
 	    // Capturamos los objetos graficos que vamos a usar
 		Button ButtonIngresar= (Button) findViewById(R.id.ButtonIngresar);
 		Button ButtonRegistrar = (Button) findViewById(R.id.ButtonRegistrar);

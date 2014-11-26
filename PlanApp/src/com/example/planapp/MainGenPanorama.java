@@ -88,6 +88,8 @@ public class MainGenPanorama extends Activity {
         					comenzarLocalizacion();
         					//-- FIN LOCALIZACIÓN--//
         					
+
+        					
         					Log.v("MainGenPanorama", "spin :"+acompanantes[+position]+" dinero :"+dinero.getText().toString());
 							Intent ir_a = new Intent (MainGenPanorama.this, MainPanoramas.class);
 							ir_a.putExtra("acompanante", acompanantes[+position]);
@@ -121,29 +123,14 @@ public class MainGenPanorama extends Activity {
 		    	}
 		    	public void onProviderDisabled(String provider){
 		    		Log.i("", "Provider OFF ");
-		    		/*
-		    		Toast toast = Toast.makeText(this, "Provider OFF", Toast.LENGTH_SHORT);
-				    toast.show();
-				    */
-		    		//this.estado.setText("Provider OFF");
 		    	}
 		    	public void onProviderEnabled(String provider){
 		    		Log.i("", "Provider ON ");
-		    		/*
-		    		Toast toast = Toast.makeText(this, "Provider ON ", Toast.LENGTH_SHORT);
-				    toast.show();
-				    */	    		
-		    		//this.estado.setText("Provider ON ");
 		    	}
 		    	
 		    	
 		    	public void onStatusChanged(String provider, int status, Bundle extras){
 		    		Log.v("", "Provider Status: " + status);
-		    		
-		    		//Toast toast = Toast.makeText(this, "Provider Status: " + status, Toast.LENGTH_SHORT);
-				    //toast.show();
-				    
-		    		//estado.setText("Provider Status: " + status);
 		    	}
 	    	};
 	    	
@@ -151,10 +138,8 @@ public class MainGenPanorama extends Activity {
 	    }
 	     
 	    private void mostrarPosicion(Location loc) {
+	    	
 	    	if(loc != null){
-	    		//lblLatitud.setText("Latitud: " + String.valueOf(loc.getLatitude()));
-	    		//lblLongitud.setText("Longitud: " + String.valueOf(loc.getLongitude()));
-	    		//lblPrecision.setText("Precision: " + String.valueOf(loc.getAccuracy()));
 	    		Log.i("", String.valueOf(loc.getLatitude() + " - " + String.valueOf(loc.getLongitude())));
 	    		latitud=String.valueOf(loc.getLatitude());
 	    		longitud=String.valueOf(loc.getLongitude());
@@ -162,9 +147,6 @@ public class MainGenPanorama extends Activity {
 	    	}
 	    	else
 	    	{
-	    		//lblLatitud.setText("Latitud: (sin_datos)");
-	    		//lblLongitud.setText("Longitud: (sin_datos)");
-	    		//lblPrecision.setText("Precision: (sin_datos)");
 	    		latitud="SinDatos";
 	    		longitud="SinDatos";
 	    		presicion="SinDatos";
