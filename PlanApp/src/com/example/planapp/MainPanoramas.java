@@ -1,5 +1,8 @@
 package com.example.planapp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainPanoramas extends Activity {
 
@@ -31,6 +35,7 @@ public class MainPanoramas extends Activity {
 	LocationManager locManager;
 	LocationListener locListener;
 
+	List<Lugar> lugares=new ArrayList<Lugar>();
 	 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +73,19 @@ public class MainPanoramas extends Activity {
 		text_id_usuario.setText(id_usuario);
 		text_latitud.setText(latitud);
 		text_longitud.setText(longitud);
+		
+		new Thread(new Runnable() {
+	  	    public void run(){
+	  	    	//LLAMO A LA FUNCION QUE ENVIA LOS DATOS
+		   		//user = httpLogin(correo.getText().toString(), pass.getText().toString());
+	  	    	Log.v("MainLogin", "Conectando con WebService");
+	  	    	Conexion conn=new Conexion();
+	  	    	lugares=conn.httpGetRecomendacion(id_usuario, longitud, latitud, acompanante, dinero);
+		   							   		
+	  	    	//IMPRIMIR LISTA
+	  	    }
+	  	    
+	  }).start();
 		
 	}
 

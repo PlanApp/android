@@ -13,6 +13,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+//import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.util.Log;
@@ -86,6 +89,60 @@ class Conexion{
 
 			}
 		return u;
+		}
+		
+		public List<Lugar>  httpGetRecomendacion(String id_usuario, String longitud, String latitud, String acompanante, String dinero){
+			
+			List<Lugar> lugares=new ArrayList<Lugar>();
+			
+			HttpClient httpclient = new DefaultHttpClient();
+			Log.v("Conexion", "Espenado respuesta ...");
+			HttpPost httppost = new HttpPost(url+"recomienda");
+			try {
+				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+				nameValuePairs.add(new BasicNameValuePair("id", id_usuario));
+				nameValuePairs.add(new BasicNameValuePair("longitud", longitud));
+				nameValuePairs.add(new BasicNameValuePair("latitud", latitud));
+				nameValuePairs.add(new BasicNameValuePair("acompanante", acompanante));
+				nameValuePairs.add(new BasicNameValuePair("dinero", dinero));
+				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+				HttpResponse response = httpclient.execute(httppost);
+				String responseAsText = EntityUtils.toString(response.getEntity());
+				
+				JSONArray respJSON;
+				try {
+					respJSON = new JSONArray(responseAsText);
+					//String[] string_lugares = new String[respJSON.length()];
+
+					
+				    for(int i=0; i<respJSON.length(); i++){
+				    	Lugar lugar = new Lugar();
+				    	JSONObject obj = respJSON.getJSONObject(i);
+				    	lugar.setID(obj.getString("id"));
+				    	lugar.setNombre(obj.getString("nombre"));
+				    	lugar.setUbicacion(obj.getString("ubicacion"));
+				    	lugar.setMonto(obj.getString("monto"));
+				    	lugar.setImagen(obj.getString("img"));
+				    	Log.v("LUGARES", "ID :"+lugar.getID()+" nombre :"+lugar.getNombre());
+				    	lugares.add(lugar);
+				    }
+				    
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+						
+						
+				
+			} catch (ClientProtocolException e) {
+
+			} catch (IOException e) {
+
+			}
+			
+			return lugares;
 		}
 
 }
