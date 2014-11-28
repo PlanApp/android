@@ -1,5 +1,8 @@
 package com.example.planapp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,14 +14,17 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainPanoramas extends Activity {
 
+	
 	 TextView text_id_usuario;
 	 TextView text_mail;
 	 TextView text_latitud;
 	 TextView text_longitud;
 	 TextView text_acompanante;
+	
 	 
 	 String id_usuario;
 	 String mail;
@@ -31,6 +37,7 @@ public class MainPanoramas extends Activity {
 	LocationManager locManager;
 	LocationListener locListener;
 
+	List<Lugar> lugares=new ArrayList<Lugar>();
 	 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,17 +65,34 @@ public class MainPanoramas extends Activity {
 		longitud=info.getExtras().getString("longitud");
 		dinero=info.getExtras().getString("dinero");
 		
-		
+	
 		
 		text_id_usuario = (TextView)findViewById(R.id.text_id_valor);
 		text_latitud = (TextView)findViewById(R.id.text_latitud);
 		text_longitud = (TextView)findViewById(R.id.text_longitud);
 		
 		//SETEO DE VALORES EN LA VISTA
+		Log.v("MainLogin", "Seteando valores");
 		text_id_usuario.setText(id_usuario);
 		text_latitud.setText(latitud);
 		text_longitud.setText(longitud);
 		
+
+		/*
+		new Thread(new Runnable() {
+	  	    public void run(){
+	  	    	//LLAMO A LA FUNCION QUE ENVIA LOS DATOS
+		   		//user = httpLogin(correo.getText().toString(), pass.getText().toString());
+	  	    	Log.v("MainLogin", "new thread");
+	  	    	Conexion conn=new Conexion();
+	  	    	lugares=conn.httpGetRecomendacion(id_usuario, longitud, latitud, acompanante, dinero);
+		   							   		
+	  	    	//IMPRIMIR LISTA
+	  	    	
+	  	    }
+	  	    
+	  }).start();
+	 */	
 	}
 
 	@Override

@@ -90,13 +90,14 @@ class Conexion{
 			}
 		return u;
 		}
-		
+
+	/*
 		public List<Lugar>  httpGetRecomendacion(String id_usuario, String longitud, String latitud, String acompanante, String dinero){
 			
 			List<Lugar> lugares=new ArrayList<Lugar>();
 			
 			HttpClient httpclient = new DefaultHttpClient();
-			Log.v("Conexion", "Espenado respuesta ...");
+			
 			HttpPost httppost = new HttpPost(url+"recomienda");
 			try {
 				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
@@ -106,11 +107,15 @@ class Conexion{
 				nameValuePairs.add(new BasicNameValuePair("acompanante", acompanante));
 				nameValuePairs.add(new BasicNameValuePair("dinero", dinero));
 				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
+				Log.v("Conexion", "Espenado respuesta ...");
 				HttpResponse response = httpclient.execute(httppost);
+				Log.v("Conexion","Respuesta recebida");
 				String responseAsText = EntityUtils.toString(response.getEntity());
+				Log.v("Conexion", "Separando el JSON");
+				Log.v("Conexion", "R:"+responseAsText);
 				
 				JSONArray respJSON;
+				
 				try {
 					respJSON = new JSONArray(responseAsText);
 					//String[] string_lugares = new String[respJSON.length()];
@@ -144,5 +149,5 @@ class Conexion{
 			
 			return lugares;
 		}
-
+*/
 }
