@@ -127,10 +127,11 @@ class Conexion{
 				    	Lugar lugar = new Lugar();
 				    	JSONObject obj = respJSON.getJSONObject(i);
 				    	lugar.setID(obj.getString("id"));
-				    	lugar.setNombre(obj.getString("nombre"));
-				    	lugar.setUbicacion(obj.getString("ubicacion"));
-				    	lugar.setMonto(obj.getString("monto"));
 				    	lugar.setImagen(obj.getString("img"));
+				    	lugar.setNombre(obj.getString("nombre"));
+				    	lugar.setLongitud(obj.getString("latitud"));
+				    	lugar.setLatitud(obj.getString("longitud"));
+
 				    	Log.v("LUGARES", "ID :"+lugar.getID()+" nombre :"+lugar.getNombre());
 				    	lugares.add(lugar);
 				    }
