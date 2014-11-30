@@ -47,6 +47,10 @@
             android:name=".MainListarPanoramas"
             android:label="@string/title_activity_main_listar_panoramas" >
         </activity>
+        <activity
+            android:name=".MainVerPanorama"
+            android:label="@string/title_activity_main_ver_panorama" >
+        </activity>
     </application>
 
 </manifest>

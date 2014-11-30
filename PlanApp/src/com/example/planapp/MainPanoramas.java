@@ -1,23 +1,24 @@
 package com.example.planapp;
 
-import java.io.InputStream;
+//import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+//import android.graphics.Bitmap;
+//import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.AsyncTask;
+//import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
+//import android.view.LayoutInflater;
 import android.view.Menu;
+/*
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
+*/
 public class MainPanoramas extends Activity {
 	
 	 String id_usuario;
@@ -76,7 +77,15 @@ public class MainPanoramas extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main_panoramas, menu);
 		
-//INTENTTTTTT
+
+		//OBTENER DATOS DE LA OTRA VISTA
+		Intent info=getIntent();
+		acompanante=info.getExtras().getString("acompanante");
+		dinero=info.getExtras().getString("dinero");
+		latitud=info.getExtras().getString("latitud");
+		longitud=info.getExtras().getString("longitud");
+		id_usuario=info.getExtras().getString("id");
+		mail=info.getExtras().getString("mail");
 		
 		//GEOLOCALIZACION
 		comenzarLocalizacion();

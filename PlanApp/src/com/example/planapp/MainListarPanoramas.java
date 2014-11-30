@@ -1,15 +1,18 @@
 package com.example.planapp;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+//import java.util.Iterator;
+//import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+//import android.view.Menu;
+//import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 public class MainListarPanoramas extends Activity {
@@ -24,7 +27,7 @@ public class MainListarPanoramas extends Activity {
 	ListView list;
     LazyAdapter adapter;
 	
-    private List<Lugar> lugares=new ArrayList<Lugar>();
+    //private List<Lugar> lugares=new ArrayList<Lugar>();
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,21 @@ public class MainListarPanoramas extends Activity {
 	    list=(ListView)findViewById(R.id.listView1);
 	    adapter=new LazyAdapter(MainListarPanoramas.this, imageUrls, texto);
 	    list.setAdapter(adapter);
+	    
+	  //---PRESIONAR SOBRE UN ITEM DE LA LISTA---//
+	    list.setOnItemClickListener(new OnItemClickListener() {
+	    	@Override
+	    	public void onItemClick(AdapterView<?> parent, View view, int position,long id){
+	    		//--Ir a vista : Opciones--//
+	    		Log.v("OnItem", "va a intent de vista del lugar");
+	    		//Notas item=NotaList2.get(position);
+	    		Intent ir_a = new Intent (MainListarPanoramas.this, MainVerPanorama.class);
+	    		ir_a.putExtra("nombre", nombres.get(position));
+	    		ir_a.putExtra("img", imagenes.get(position));
+	    		Log.v("MainListarPanoramas","Apreto:"+nombres.get(position)+" pos :"+position);
+	    		startActivity(ir_a);
+	    	}
+	    });
 	    
 	}
 
