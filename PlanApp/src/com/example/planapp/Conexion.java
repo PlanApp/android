@@ -132,7 +132,7 @@ class Conexion{
 				    	lugar.setLongitud(obj.getString("latitud"));
 				    	lugar.setLatitud(obj.getString("longitud"));
 
-				    	Log.v("LUGARES", "ID :"+lugar.getID()+" nombre :"+lugar.getNombre());
+				    	Log.v("Conexion", "Lugares -> ID :"+lugar.getID()+" nombre :"+lugar.getNombre());
 				    	lugares.add(lugar);
 				    }
 				    Log.v("Conexion", "Salio del for");

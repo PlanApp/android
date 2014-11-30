@@ -15,12 +15,14 @@ public class LazyAdapter extends BaseAdapter {
      
     private Activity activity;
     private String[] data;
+    private String[] texto;
     private static LayoutInflater inflater=null;
     public ImageLoader imageLoader; 
      
-    public LazyAdapter(Activity a, String[] d) {
+    public LazyAdapter(Activity a, String[] img, String[] text) {
         activity = a;
-        data=d;
+        data=img;
+        texto=text;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         imageLoader=new ImageLoader(activity.getApplicationContext());
     }
@@ -42,9 +44,10 @@ public class LazyAdapter extends BaseAdapter {
         if(convertView==null)
             vi = inflater.inflate(R.layout.row_listview_item, null);
  
-        TextView text=(TextView)vi.findViewById(R.id.text);;
+        TextView text=(TextView)vi.findViewById(R.id.text);
         ImageView image=(ImageView)vi.findViewById(R.id.image);
-        text.setText("item "+position);
+        //text.setText("item "+position);
+        text.setText("lugar:"+texto[position]);
         imageLoader.DisplayImage(data[position], image);
         return vi;
     }
