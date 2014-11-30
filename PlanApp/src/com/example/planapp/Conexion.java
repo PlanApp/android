@@ -91,7 +91,7 @@ class Conexion{
 		return u;
 		}
 
-	/*
+	
 		public List<Lugar>  httpGetRecomendacion(String id_usuario, String longitud, String latitud, String acompanante, String dinero){
 			
 			List<Lugar> lugares=new ArrayList<Lugar>();
@@ -111,15 +111,17 @@ class Conexion{
 				HttpResponse response = httpclient.execute(httppost);
 				Log.v("Conexion","Respuesta recebida");
 				String responseAsText = EntityUtils.toString(response.getEntity());
-				Log.v("Conexion", "Separando el JSON");
 				Log.v("Conexion", "R:"+responseAsText);
+				Log.v("Conexion", "Separando el JSON");
+				
 				
 				JSONArray respJSON;
 				
 				try {
+					Log.v("Conexion", "Entro");
 					respJSON = new JSONArray(responseAsText);
 					//String[] string_lugares = new String[respJSON.length()];
-
+					Log.v("Conexion", "Va a ejecuar el for");
 					
 				    for(int i=0; i<respJSON.length(); i++){
 				    	Lugar lugar = new Lugar();
@@ -132,6 +134,7 @@ class Conexion{
 				    	Log.v("LUGARES", "ID :"+lugar.getID()+" nombre :"+lugar.getNombre());
 				    	lugares.add(lugar);
 				    }
+				    Log.v("Conexion", "Salio del for");
 				    
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
@@ -149,5 +152,5 @@ class Conexion{
 			
 			return lugares;
 		}
-*/
+
 }
