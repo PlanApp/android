@@ -38,6 +38,9 @@ public class MainListarPanoramas extends Activity {
 		nombres=info.getStringArrayListExtra("nombres");
 		imagenes=info.getStringArrayListExtra("imagenes");
 		
+		texto = new String[nombres.size()];
+		imageUrls = new String[imagenes.size()];
+		
 		//Iterator iter = lugares.iterator();
 		//int cont=0;
 		//while (iter.hasNext()){
@@ -46,7 +49,7 @@ public class MainListarPanoramas extends Activity {
 		for( int i = 0 ; i < nombres.size() ; i++ ){
 		  //Lugar l = lugares.get(cont);
 		  //nombres.add(l.getNombre());
-		  Log.v("MainListarPanoramas","dato:"+nombres.get(i));
+		  Log.v("MainListarPanoramas","dato:"+nombres.get(i)+"-"+imagenes.get(i));
 		  texto[i]=nombres.get(i);
 		  //imageUrls[cont]=l.getImagen();
 		  imageUrls[i]=imagenes.get(i);
@@ -56,10 +59,12 @@ public class MainListarPanoramas extends Activity {
 		}
 			
 		//IMPRIMIR LISTA
+		
 		Log.v("MainListarPanoramas","Imprimiendo lista");
 	    list=(ListView)findViewById(R.id.listView1);
 	    adapter=new LazyAdapter(MainListarPanoramas.this, imageUrls, texto);
 	    list.setAdapter(adapter);
+	    
 	}
 
 	/*
