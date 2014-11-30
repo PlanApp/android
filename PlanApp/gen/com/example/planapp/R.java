@@ -32,36 +32,39 @@ public final class R {
     }
     public static final class id {
         public static final int BotonGenerar=0x7f080004;
-        public static final int BotonRegistrar=0x7f08000e;
+        public static final int BotonRegistrar=0x7f08000f;
         public static final int ButtonIngresar=0x7f080008;
         public static final int ButtonRegistrar=0x7f080009;
-        public static final int action_settings=0x7f080018;
-        public static final int amiga=0x7f080019;
-        public static final int amigo=0x7f08001a;
-        public static final int amigos=0x7f08001b;
-        public static final int cita=0x7f08001e;
+        public static final int action_settings=0x7f08001b;
+        public static final int amiga=0x7f08001c;
+        public static final int amigo=0x7f08001d;
+        public static final int amigos=0x7f08001e;
+        public static final int cita=0x7f080021;
         public static final int correo=0x7f080006;
         public static final int dinero=0x7f080002;
-        public static final int fecha=0x7f08000d;
+        public static final int fecha=0x7f08000e;
+        public static final int image=0x7f080013;
         public static final int imageView1=0x7f080005;
-        public static final int menu_ajustes=0x7f080017;
-        public static final int menu_historial=0x7f080015;
-        public static final int menu_notificaciones=0x7f080012;
-        public static final int menu_pendientes=0x7f080016;
-        public static final int menu_profile=0x7f080014;
-        public static final int menu_search=0x7f080013;
-        public static final int nombre=0x7f08000a;
-        public static final int pareja=0x7f08001d;
+        public static final int listView1=0x7f08000a;
+        public static final int menu_ajustes=0x7f08001a;
+        public static final int menu_historial=0x7f080018;
+        public static final int menu_notificaciones=0x7f080015;
+        public static final int menu_pendientes=0x7f080019;
+        public static final int menu_profile=0x7f080017;
+        public static final int menu_search=0x7f080016;
+        public static final int nombre=0x7f08000b;
+        public static final int pareja=0x7f080020;
         public static final int pass=0x7f080007;
-        public static final int passconfirmar=0x7f08000b;
-        public static final int radioButton1=0x7f080011;
-        public static final int radioButton2=0x7f080010;
-        public static final int radioGender=0x7f08000f;
+        public static final int passconfirmar=0x7f08000c;
+        public static final int radioButton1=0x7f080012;
+        public static final int radioButton2=0x7f080011;
+        public static final int radioGender=0x7f080010;
         public static final int spinner_acompanante=0x7f080001;
+        public static final int text=0x7f080014;
         public static final int textView1=0x7f080003;
-        public static final int textView2=0x7f08000c;
+        public static final int textView2=0x7f08000d;
         public static final int textspinner=0x7f080000;
-        public static final int trabajo=0x7f08001c;
+        public static final int trabajo=0x7f08001f;
     }
     public static final class layout {
         public static final int activity_genpanorama=0x7f030000;
@@ -70,6 +73,7 @@ public final class R {
         public static final int activity_main_panoramas=0x7f030003;
         public static final int activity_main_profile=0x7f030004;
         public static final int activity_main_registrar=0x7f030005;
+        public static final int row_listview_item=0x7f030006;
     }
     public static final class menu {
         public static final int main_inicio=0x7f070000;

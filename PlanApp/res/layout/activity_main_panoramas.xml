@@ -8,9 +8,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.planapp.MainPanoramas" >
 
-    <TextView
-        android:layout_width="wrap_content"
+   <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:padding="10dp" >
+    </ListView>
 
 </RelativeLayout>

@@ -1,17 +1,28 @@
 package com.example.planapp;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainPanoramas extends Activity {
 	
@@ -27,7 +38,19 @@ public class MainPanoramas extends Activity {
 	LocationListener locListener;
 	
 	List<Lugar> lugares=new ArrayList<Lugar>();
+	
+	//---new
+	ListView list;
+    LazyAdapter adapter;
 
+    private String imageUrls[] = {
+            "http://izaak.jellinek.com/tuxes/images/black%20and%20white%20tux.gif",
+            "http://4vector.com/i/free-vector-svg-globe-green-clip-art_106713_Svg_Globe_Green_clip_art_hight.png",
+            "http://blog.tenstral.net/wp-content/uploads/2013/03/Debian-duologo.png"
+             
+    };
+    
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,7 +80,13 @@ public class MainPanoramas extends Activity {
 	  	    
 	  }).start();
 		
+
 		
+		
+        list=(ListView)findViewById(R.id.listView1);
+        adapter=new LazyAdapter(this, imageUrls);
+        list.setAdapter(adapter);
+        
 		
 		return true;
 	}
@@ -126,4 +155,13 @@ public class MainPanoramas extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	*/
+	    @Override
+	    public void onDestroy()
+	    {
+	        list.setAdapter(null);
+	        super.onDestroy();
+	    }
+	     
+ 
+
 }
