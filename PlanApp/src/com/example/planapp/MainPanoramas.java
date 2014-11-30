@@ -3,8 +3,6 @@ package com.example.planapp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.planapp.app.adater.CustomListAdapter;
-
 import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
@@ -14,7 +12,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 
 public class MainPanoramas extends Activity {
 	
@@ -30,12 +27,6 @@ public class MainPanoramas extends Activity {
 	LocationListener locListener;
 	
 	List<Lugar> lugares=new ArrayList<Lugar>();
-	
-	
-	//-----new
-    private ListView listView;
-    private CustomListAdapter adapter;
-    //--
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +57,6 @@ public class MainPanoramas extends Activity {
 	  	    
 	  }).start();
 		
-		//---NEW
-		listView = (ListView) findViewById(R.id.list);
-		adapter = new CustomListAdapter(this, lugares );
-		listView.setAdapter(adapter);
-		//---
 		
 		
 		return true;

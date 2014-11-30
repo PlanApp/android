@@ -1,6 +1,6 @@
 package com.example.planapp;
 
-public class Lugar{
+class Lugar{
 	private String id, nombre, longitud, latitud, monto_promedio, imagen;
 	
 	public void setID(String id){

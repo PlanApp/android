@@ -1,11 +1,11 @@
 package com.example.planapp;
 
-//import java.io.IOException;
+import java.io.IOException;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-//import android.location.Address;
+import android.location.Address;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
