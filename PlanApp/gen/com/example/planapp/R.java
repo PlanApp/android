@@ -44,7 +44,8 @@ public final class R {
         public static final int list_row_bg=0x7f020006;
         public static final int list_row_bg_hover=0x7f020007;
         public static final int list_row_selector=0x7f020008;
-        public static final int portada=0x7f020009;
+        public static final int loading=0x7f020009;
+        public static final int portada=0x7f02000a;
     }
     public static final class id {
         public static final int BotonGenerar=0x7f090004;
