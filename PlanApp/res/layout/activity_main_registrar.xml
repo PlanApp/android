@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
   <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textnombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/pass"
         android:layout_alignRight="@+id/correo"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/textnombre"
         android:layout_marginTop="22dp"
         android:ems="10"
         android:hint="@string/nombre" />
@@ -55,7 +55,7 @@
         android:id="@+id/passconfirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignLeft="@+id/texttipo"
         android:layout_below="@+id/pass"
         android:layout_marginTop="22dp"
         android:ems="10"
@@ -78,7 +78,7 @@
        android:id="@+id/BotonRegistrar"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_alignLeft="@+id/textView2"
+       android:layout_alignLeft="@+id/texttipo"
        android:layout_alignParentBottom="true"
        android:layout_alignRight="@+id/radioGender"
        android:layout_marginBottom="25dp"
@@ -90,7 +90,7 @@
        android:id="@+id/radioGender"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
-       android:layout_alignLeft="@+id/textView1"
+       android:layout_alignLeft="@+id/textnombre"
        android:layout_alignRight="@+id/fecha"
        android:layout_below="@+id/fecha"
        android:layout_marginTop="14dp"
@@ -115,12 +115,12 @@
    </RadioGroup>
 
    <TextView
-       android:id="@+id/textView2"
+       android:id="@+id/texttipo"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_alignBottom="@+id/radioGender"
        android:layout_alignTop="@+id/radioGender"
-       android:layout_toLeftOf="@+id/textView1"
+       android:layout_toLeftOf="@+id/textnombre"
        android:gravity="center"
        android:text="@string/sexo"
        android:textSize="20sp" />

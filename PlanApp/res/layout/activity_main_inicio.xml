@@ -6,7 +6,7 @@
     tools:context="com.example.planapp.MainInicio" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imagen"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"

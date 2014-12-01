@@ -9,7 +9,7 @@
         android:id="@+id/correo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/textnombre"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="54dp"
         android:ems="10"
@@ -30,7 +30,7 @@
         android:inputType="textPassword" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textnombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

@@ -57,9 +57,7 @@ public class MainListarPanoramas extends Activity {
 		descrip = new String[lista_descrip.size()];
 		tipo = new String[lista_tipo.size()];
 		
-		//Iterator iter = lugares.iterator();
-		//int cont=0;
-		//while (iter.hasNext()){
+
 		Log.v("MainListarPanoramas","Separando Datos, largo :"+lista_nombres.size());
 	  	
 		for( int i = 0 ; i < lista_nombres.size() ; i++ ){
@@ -88,6 +86,9 @@ public class MainListarPanoramas extends Activity {
 	    		Intent ir_a = new Intent (MainListarPanoramas.this, MainVerPanorama.class);
 	    		ir_a.putExtra("nombre", lista_nombres.get(position));
 	    		ir_a.putExtra("img", lista_imagenes.get(position));
+	    		ir_a.putExtra("descrip", lista_descrip.get(position));
+	    		ir_a.putExtra("tipo", lista_tipo.get(position));
+	    		ir_a.putExtra("id_lugar", lista_ids.get(position));
 	    		Log.v("MainListarPanoramas","Apreto:"+lista_nombres.get(position)+" pos :"+position);
 	    		startActivity(ir_a);
 	    	}
