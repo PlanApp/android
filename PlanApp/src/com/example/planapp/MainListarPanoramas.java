@@ -17,11 +17,17 @@ import android.widget.ListView;
 
 public class MainListarPanoramas extends Activity {
 
-    private ArrayList<String> nombres;
-    private ArrayList<String> imagenes;
+    private ArrayList<String> lista_nombres;
+    private ArrayList<String> lista_imagenes;
+    private ArrayList<String> lista_ids;
+    private ArrayList<String> lista_descrip;
+    private ArrayList<String> lista_tipo;
     
-    private String[] texto;
-    private String[] imageUrls;
+    private String[] nombre;
+    private String[] image;
+    private String[] ids;
+    private String[] descrip;
+    private String[] tipo;
     
 	//---new
 	ListView list;
@@ -38,34 +44,38 @@ public class MainListarPanoramas extends Activity {
 		
 		//OBTENER DATOS DE LA OTRA VISTA
 		Intent info=getIntent();
-		nombres=info.getStringArrayListExtra("nombres");
-		imagenes=info.getStringArrayListExtra("imagenes");
+		lista_nombres=info.getStringArrayListExtra("nombres");
+		lista_imagenes=info.getStringArrayListExtra("imagenes");
+		lista_ids=info.getStringArrayListExtra("ids");
+		lista_descrip=info.getStringArrayListExtra("descrip");
+		lista_tipo=info.getStringArrayListExtra("tipo");
 		
-		texto = new String[nombres.size()];
-		imageUrls = new String[imagenes.size()];
+		
+		nombre = new String[lista_nombres.size()];
+		image = new String[lista_imagenes.size()];
+		ids = new String[lista_ids.size()];
+		descrip = new String[lista_descrip.size()];
+		tipo = new String[lista_tipo.size()];
 		
 		//Iterator iter = lugares.iterator();
 		//int cont=0;
 		//while (iter.hasNext()){
-		Log.v("MainListarPanoramas","Separando Datos, largo :"+nombres.size());
+		Log.v("MainListarPanoramas","Separando Datos, largo :"+lista_nombres.size());
 	  	
-		for( int i = 0 ; i < nombres.size() ; i++ ){
-		  //Lugar l = lugares.get(cont);
-		  //nombres.add(l.getNombre());
-		  Log.v("MainListarPanoramas","dato:"+nombres.get(i)+"-"+imagenes.get(i));
-		  texto[i]=nombres.get(i);
-		  //imageUrls[cont]=l.getImagen();
-		  imageUrls[i]=imagenes.get(i);
-		  //imagenes.add(l.getImagen());
-		  //System.out.println(iter.next());
-		 // cont=cont+1;
+		for( int i = 0 ; i < lista_nombres.size() ; i++ ){
+		  Log.v("MainListarPanoramas","dato:"+lista_nombres.get(i)+"-"+lista_imagenes.get(i));
+		  nombre[i]=lista_nombres.get(i);
+		  image[i]=lista_imagenes.get(i);
+		  ids[i]=lista_ids.get(i);
+		  descrip[i]=lista_descrip.get(i);
+		  tipo[i]=lista_tipo.get(i);
 		}
 			
 		//IMPRIMIR LISTA
 		
 		Log.v("MainListarPanoramas","Imprimiendo lista");
-	    list=(ListView)findViewById(R.id.listView1);
-	    adapter=new LazyAdapter(MainListarPanoramas.this, imageUrls, texto);
+	    list=(ListView)findViewById(R.id.list);
+	    adapter=new LazyAdapter(MainListarPanoramas.this,ids,  image, nombre, descrip, tipo);
 	    list.setAdapter(adapter);
 	    
 	  //---PRESIONAR SOBRE UN ITEM DE LA LISTA---//
@@ -76,9 +86,9 @@ public class MainListarPanoramas extends Activity {
 	    		Log.v("OnItem", "va a intent de vista del lugar");
 	    		//Notas item=NotaList2.get(position);
 	    		Intent ir_a = new Intent (MainListarPanoramas.this, MainVerPanorama.class);
-	    		ir_a.putExtra("nombre", nombres.get(position));
-	    		ir_a.putExtra("img", imagenes.get(position));
-	    		Log.v("MainListarPanoramas","Apreto:"+nombres.get(position)+" pos :"+position);
+	    		ir_a.putExtra("nombre", lista_nombres.get(position));
+	    		ir_a.putExtra("img", lista_imagenes.get(position));
+	    		Log.v("MainListarPanoramas","Apreto:"+lista_nombres.get(position)+" pos :"+position);
 	    		startActivity(ir_a);
 	    	}
 	    });

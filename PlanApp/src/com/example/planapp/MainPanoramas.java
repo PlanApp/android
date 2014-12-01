@@ -43,27 +43,12 @@ public class MainPanoramas extends Activity {
 	private List<Lugar> lugares=new ArrayList<Lugar>();
 	
 	//---new
-//	ListView list;
-//    LazyAdapter adapter;
-    
-    //private String texto[];
-	private List<String> nombres=new ArrayList<String>();
-    //private String imageUrls[];
-    private List<String> imagenes=new ArrayList<String>();
-    
-    /*
-    private String texto[]={
-    		"Tux",
-    		"Fedora",
-    		"Debian"
-    };
 
-    private String imageUrls[] = {
-            "http://izaak.jellinek.com/tuxes/images/black%20and%20white%20tux.gif",
-            "http://4vector.com/i/free-vector-svg-globe-green-clip-art_106713_Svg_Globe_Green_clip_art_hight.png",
-            "http://blog.tenstral.net/wp-content/uploads/2013/03/Debian-duologo.png"
-             
-    };*/
+	private List<String> nombres=new ArrayList<String>();
+    private List<String> imagenes=new ArrayList<String>();
+    private List<String> ids=new ArrayList<String>();
+    private List<String> descrip=new ArrayList<String>();
+    private List<String> tipo=new ArrayList<String>();
     
 	
 	@Override
@@ -96,31 +81,35 @@ public class MainPanoramas extends Activity {
 		new Thread(new Runnable() {
 	  	    public void run(){
 	  	    	//LLAMO A LA FUNCION QUE ENVIA LOS DATOS
-		   		//user = httpLogin(correo.getText().toString(), pass.getText().toString());
+
 	  	    	Log.v("MainLogin", "new thread");
 	  	    	Conexion conn=new Conexion();
 	  	    	lugares=conn.httpGetRecomendacion(id_usuario, longitud, latitud, acompanante, dinero);
 	  	    	Log.v("MainPanoramas","Lugares cargados");
 				
-	  	    	//Iterator iter = lugares.iterator();
-				int cont=0;
+
+				//int cont=0;
 				Log.v("MainPanoramas","Separando info");
-				//while (iter.hasNext()){
+
 				for( int i = 0 ; i < 3 ; i++ ){
-				  Lugar l = lugares.get(cont);
+				  Lugar l = lugares.get(i);
 				  Log.v("MainPanoramas","Gaurdando"+l.getNombre()+"-"+l.getImagen());
+				  
 				  nombres.add(l.getNombre());
-				  //texto[cont]=l.getNombre();
-				  //imageUrls[cont]=l.getImagen();
 				  imagenes.add(l.getImagen());
-				  //System.out.println(iter.next());
-				  cont=cont+1;
+				  ids.add(l.getID());
+				  descrip.add(l.getDescrip());
+				  tipo.add(l.getTipo());
+				  //cont=cont+1;
 				}
 				
 				Log.v("MainPanoramas","Generando Intent");
 				Intent ir_a = new Intent (MainPanoramas.this, MainListarPanoramas.class);
 				ir_a.putStringArrayListExtra("nombres", (ArrayList<String>) nombres);
 				ir_a.putStringArrayListExtra("imagenes", (ArrayList<String>)imagenes);
+				ir_a.putStringArrayListExtra("ids", (ArrayList<String>)ids);
+				ir_a.putStringArrayListExtra("descrip", (ArrayList<String>)descrip);
+				ir_a.putStringArrayListExtra("tipo", (ArrayList<String>)tipo);
 				//ir_a.putExtra("mail", user.getMail());
 				Log.v("MainPanoramas", "Va el intent MainListPanoramas");
 				startActivity(ir_a);

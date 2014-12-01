@@ -131,6 +131,8 @@ class Conexion{
 				    	lugar.setNombre(obj.getString("nombre"));
 				    	lugar.setLongitud(obj.getString("latitud"));
 				    	lugar.setLatitud(obj.getString("longitud"));
+				    	lugar.setDescrip(obj.getString("descrip"));
+				    	lugar.setTipo(obj.getString("tipo"));
 
 				    	Log.v("Conexion", "Lugares -> ID :"+lugar.getID()+" nombre :"+lugar.getNombre());
 				    	lugares.add(lugar);

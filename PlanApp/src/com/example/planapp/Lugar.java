@@ -1,7 +1,13 @@
 package com.example.planapp;
 
 class Lugar{
-	private String id, nombre, longitud, latitud, monto_promedio, imagen;
+	private String id;
+	private String nombre;
+	private String imagen;
+	private String longitud;
+	private String latitud;
+	private String descrip;
+	private String tipo;
 	
 	public void setID(String id){
 		this.id=id;
@@ -19,8 +25,12 @@ class Lugar{
 		this.longitud=l;
 	}
 	
-	public void setMonto(String monto){
-		this.monto_promedio=monto;
+	public void setDescrip(String d){
+		this.descrip=d;
+	}
+	
+	public void setTipo(String t){
+		this.tipo=t;
 	}
 	
 	public void setImagen(String img){
@@ -43,8 +53,12 @@ class Lugar{
 		return this.longitud;
 	}
 	
-	public String getMonto(){
-		return this.monto_promedio;
+	public String getDescrip(){
+		return this.descrip;
+	}
+	
+	public String getTipo(){
+		return this.tipo;
 	}
 	
 	public String getImagen(){
