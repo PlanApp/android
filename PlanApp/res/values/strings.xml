@@ -42,5 +42,6 @@
     <string name="title_activity_main_panoramas">MainPanoramas</string>
     <string name="title_activity_main_listar_panoramas">MainListarPanoramas</string>
     <string name="title_activity_main_ver_panorama">MainVerPanorama</string>
+    <string name="title_activity_main_lugares">MainLugares</string>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.example.planapp;
 
 import java.util.ArrayList;
+import java.util.List;
 //import java.util.Iterator;
 //import java.util.List;
 
@@ -17,17 +18,32 @@ import android.widget.ListView;
 
 public class MainListarPanoramas extends Activity {
 
-    private ArrayList<String> lista_nombres;
-    private ArrayList<String> lista_imagenes;
-    private ArrayList<String> lista_ids;
-    private ArrayList<String> lista_descrip;
-    private ArrayList<String> lista_tipo;
+	private List<String> ids_1=new ArrayList<String>();
+    private List<String> lugares_1=new ArrayList<String>();
+	private List<String> ids_2=new ArrayList<String>();
+    private List<String> lugares_2=new ArrayList<String>();
+	private List<String> ids_3=new ArrayList<String>();
+    private List<String> lugares_3=new ArrayList<String>();
+    private List<String> imagenes=new ArrayList<String>();
     
+    private String[] ids1;
+    private String[] ids2;
+    private String[] ids3;
+    
+    private String[] lugares1;
+    private String[] lugares2;
+    private String[] lugares3;
+    
+    private String [] img;
+    
+    
+    /*
     private String[] nombre;
     private String[] image;
     private String[] ids;
     private String[] descrip;
     private String[] tipo;
+    */
     
 	//---new
 	ListView list;
@@ -44,36 +60,44 @@ public class MainListarPanoramas extends Activity {
 		
 		//OBTENER DATOS DE LA OTRA VISTA
 		Intent info=getIntent();
-		lista_nombres=info.getStringArrayListExtra("nombres");
-		lista_imagenes=info.getStringArrayListExtra("imagenes");
-		lista_ids=info.getStringArrayListExtra("ids");
-		lista_descrip=info.getStringArrayListExtra("descrip");
-		lista_tipo=info.getStringArrayListExtra("tipo");
+		ids_1=info.getStringArrayListExtra("ids_1");
+		ids_2=info.getStringArrayListExtra("ids_2");
+		ids_3=info.getStringArrayListExtra("ids_3");
+		lugares_1=info.getStringArrayListExtra("lugares_1");
+		lugares_2=info.getStringArrayListExtra("lugares_2");
+		lugares_3=info.getStringArrayListExtra("lugares_3");
+		imagenes=info.getStringArrayListExtra("imagenes");
 		
+		//DEFINIR TAMANO ARREGLOS
+		ids1 = new String[ids_1.size()];
+		ids2 = new String[ids_2.size()];
+		ids3 = new String[ids_3.size()];
 		
-		nombre = new String[lista_nombres.size()];
-		image = new String[lista_imagenes.size()];
-		ids = new String[lista_ids.size()];
-		descrip = new String[lista_descrip.size()];
-		tipo = new String[lista_tipo.size()];
+		lugares1 = new String[lugares_1.size()];
+		lugares2 = new String[lugares_2.size()];
+		lugares3 = new String[lugares_3.size()];
+		
+		img = new String[imagenes.size()];
 		
 
-		Log.v("MainListarPanoramas","Separando Datos, largo :"+lista_nombres.size());
+		Log.v("MainListarPanoramas","Separando Datos, largo :"+ids_1.size());
 	  	
-		for( int i = 0 ; i < lista_nombres.size() ; i++ ){
-		  Log.v("MainListarPanoramas","dato:"+lista_nombres.get(i)+"-"+lista_imagenes.get(i));
-		  nombre[i]=lista_nombres.get(i);
-		  image[i]=lista_imagenes.get(i);
-		  ids[i]=lista_ids.get(i);
-		  descrip[i]=lista_descrip.get(i);
-		  tipo[i]=lista_tipo.get(i);
+		for( int i = 0 ; i < imagenes.size() ; i++ ){
+		  Log.v("MainListarPanoramas","dato:"+imagenes.get(i));
+		  ids1[i]=ids_1.get(i);
+		  ids2[i]=ids_2.get(i);
+		  ids3[i]=ids_3.get(i);
+		  lugares1[i]=lugares_1.get(i);
+		  lugares2[i]=lugares_2.get(i);
+		  lugares3[i]=lugares_3.get(i);
+		  img[i]=imagenes.get(i);
 		}
 			
 		//IMPRIMIR LISTA
 		
 		Log.v("MainListarPanoramas","Imprimiendo lista");
 	    list=(ListView)findViewById(R.id.list);
-	    adapter=new LazyAdapter(MainListarPanoramas.this,ids,  image, nombre, descrip, tipo);
+	    adapter=new LazyAdapter(MainListarPanoramas.this,lugares1, lugares2, lugares3, img);
 	    list.setAdapter(adapter);
 	    
 	  //---PRESIONAR SOBRE UN ITEM DE LA LISTA---//
@@ -83,13 +107,12 @@ public class MainListarPanoramas extends Activity {
 	    		//--Ir a vista : Opciones--//
 	    		Log.v("OnItem", "va a intent de vista del lugar");
 	    		//Notas item=NotaList2.get(position);
-	    		Intent ir_a = new Intent (MainListarPanoramas.this, MainVerPanorama.class);
-	    		ir_a.putExtra("nombre", lista_nombres.get(position));
-	    		ir_a.putExtra("img", lista_imagenes.get(position));
-	    		ir_a.putExtra("descrip", lista_descrip.get(position));
-	    		ir_a.putExtra("tipo", lista_tipo.get(position));
-	    		ir_a.putExtra("id_lugar", lista_ids.get(position));
-	    		Log.v("MainListarPanoramas","Apreto:"+lista_nombres.get(position)+" pos :"+position);
+	    		Intent ir_a = new Intent (MainListarPanoramas.this, MainLugares.class);
+	    		//PASA ID DE ACTIVIDADES/LUGARES DEL PANORAMA SELECCIONADO
+	    		ir_a.putExtra("id_1", ids_1.get(position));
+	    		ir_a.putExtra("id_2", ids_2.get(position));
+	    		ir_a.putExtra("id_3", ids_3.get(position));
+	    		Log.v("MainListarPanoramas","Apreto:"+(position));
 	    		startActivity(ir_a);
 	    	}
 	    });

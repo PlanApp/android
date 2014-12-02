@@ -51,6 +51,10 @@
             android:name=".MainVerPanorama"
             android:label="@string/title_activity_main_ver_panorama" >
         </activity>
+        <activity
+            android:name=".MainLugares"
+            android:label="@string/title_activity_main_lugares" >
+        </activity>
     </application>
 
 </manifest>

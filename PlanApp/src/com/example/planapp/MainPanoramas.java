@@ -40,15 +40,17 @@ public class MainPanoramas extends Activity {
 	LocationManager locManager;
 	LocationListener locListener;
 	
-	private List<Lugar> lugares=new ArrayList<Lugar>();
+	private List<Panorama> panoramas=new ArrayList<Panorama>();
 	
 	//---new
 
-	private List<String> nombres=new ArrayList<String>();
+	private List<String> ids_1=new ArrayList<String>();
+    private List<String> lugares_1=new ArrayList<String>();
+	private List<String> ids_2=new ArrayList<String>();
+    private List<String> lugares_2=new ArrayList<String>();
+	private List<String> ids_3=new ArrayList<String>();
+    private List<String> lugares_3=new ArrayList<String>();
     private List<String> imagenes=new ArrayList<String>();
-    private List<String> ids=new ArrayList<String>();
-    private List<String> descrip=new ArrayList<String>();
-    private List<String> tipo=new ArrayList<String>();
     
 	
 	@Override
@@ -75,8 +77,6 @@ public class MainPanoramas extends Activity {
 		//GEOLOCALIZACION
 		comenzarLocalizacion();
 		
-		
-		
 		//CONEXION CON EL WEBSERVICE
 		new Thread(new Runnable() {
 	  	    public void run(){
@@ -84,7 +84,7 @@ public class MainPanoramas extends Activity {
 
 	  	    	Log.v("MainLogin", "new thread");
 	  	    	Conexion conn=new Conexion();
-	  	    	lugares=conn.httpGetRecomendacion(id_usuario, longitud, latitud, acompanante, dinero);
+	  	    	panoramas=conn.httpGetRecomendacionPanoramas(id_usuario, longitud, latitud, acompanante, dinero);
 	  	    	Log.v("MainPanoramas","Lugares cargados");
 				
 
@@ -92,24 +92,28 @@ public class MainPanoramas extends Activity {
 				Log.v("MainPanoramas","Separando info");
 
 				for( int i = 0 ; i < 3 ; i++ ){
-				  Lugar l = lugares.get(i);
-				  Log.v("MainPanoramas","Gaurdando"+l.getNombre()+"-"+l.getImagen());
+				  Panorama p = panoramas.get(i);
+				  Log.v("MainPanoramas","Gaurdando"+p.getIMG());
 				  
-				  nombres.add(l.getNombre());
-				  imagenes.add(l.getImagen());
-				  ids.add(l.getID());
-				  descrip.add(l.getDescrip());
-				  tipo.add(l.getTipo());
+				  ids_1.add(p.getID1());
+				  ids_2.add(p.getID2());
+				  ids_3.add(p.getID3());
+				  lugares_1.add(p.getLugar1());
+				  lugares_2.add(p.getLugar2());
+				  lugares_3.add(p.getLugar3());
+				  imagenes.add(p.getIMG());
 				  //cont=cont+1;
 				}
 				
 				Log.v("MainPanoramas","Generando Intent");
 				Intent ir_a = new Intent (MainPanoramas.this, MainListarPanoramas.class);
-				ir_a.putStringArrayListExtra("nombres", (ArrayList<String>) nombres);
+				ir_a.putStringArrayListExtra("ids_1", (ArrayList<String>) ids_1);
+				ir_a.putStringArrayListExtra("ids_2", (ArrayList<String>) ids_2);
+				ir_a.putStringArrayListExtra("ids_3", (ArrayList<String>) ids_3);
+				ir_a.putStringArrayListExtra("lugares_1", (ArrayList<String>) lugares_1);
+				ir_a.putStringArrayListExtra("lugares_2", (ArrayList<String>) lugares_2);
+				ir_a.putStringArrayListExtra("lugares_3", (ArrayList<String>) lugares_3);
 				ir_a.putStringArrayListExtra("imagenes", (ArrayList<String>)imagenes);
-				ir_a.putStringArrayListExtra("ids", (ArrayList<String>)ids);
-				ir_a.putStringArrayListExtra("descrip", (ArrayList<String>)descrip);
-				ir_a.putStringArrayListExtra("tipo", (ArrayList<String>)tipo);
 				//ir_a.putExtra("mail", user.getMail());
 				Log.v("MainPanoramas", "Va el intent MainListPanoramas");
 				startActivity(ir_a);

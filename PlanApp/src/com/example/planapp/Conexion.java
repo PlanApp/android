@@ -96,16 +96,14 @@ class Conexion{
 		return u;
 		}
 
-    
-
 	
-		public List<Lugar>  httpGetRecomendacion(String id_usuario, String longitud, String latitud, String acompanante, String dinero){
+		public List<Lugar>  httpGetRecomendacionLugares(String id_usuario, String longitud, String latitud, String acompanante, String dinero){
 			
 			List<Lugar> lugares=new ArrayList<Lugar>();
 			
 			HttpClient httpclient = new DefaultHttpClient();
 			
-			HttpPost httppost = new HttpPost(url+"recomienda");
+			HttpPost httppost = new HttpPost(url+"recomienda_lugares");
 			try {
 				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 				nameValuePairs.add(new BasicNameValuePair("id", id_usuario));
@@ -161,6 +159,72 @@ class Conexion{
 			}
 			
 			return lugares;
+		}
+		
+		
+		public List<Panorama>  httpGetRecomendacionPanoramas(String id_usuario, String longitud, String latitud, String acompanante, String dinero){
+			
+			List<Panorama> panoramas=new ArrayList<Panorama>();
+			
+			HttpClient httpclient = new DefaultHttpClient();
+			
+			HttpPost httppost = new HttpPost(url+"recomienda_panoramas");
+			try {
+				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+				nameValuePairs.add(new BasicNameValuePair("id", id_usuario));
+				nameValuePairs.add(new BasicNameValuePair("longitud", longitud));
+				nameValuePairs.add(new BasicNameValuePair("latitud", latitud));
+				nameValuePairs.add(new BasicNameValuePair("acompanante", acompanante));
+				nameValuePairs.add(new BasicNameValuePair("dinero", dinero));
+				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+				Log.v("Conexion", "Espenado respuesta ...");
+				HttpResponse response = httpclient.execute(httppost);
+				Log.v("Conexion","Respuesta recebida");
+				String responseAsText = EntityUtils.toString(response.getEntity());
+				Log.v("Conexion", "R:"+responseAsText);
+				Log.v("Conexion", "Separando el JSON");
+				
+				
+				JSONArray respJSON;
+				
+				try {
+					Log.v("Conexion", "Entro");
+					respJSON = new JSONArray(responseAsText);
+					//String[] string_lugares = new String[respJSON.length()];
+					Log.v("Conexion", "Va a ejecuar el for");
+					
+				    for(int i=0; i<respJSON.length(); i++){
+				    	Panorama panorama = new Panorama();
+				    	JSONObject obj = respJSON.getJSONObject(i);
+				    	panorama.setID1(obj.getString("id_1"));
+				    	panorama.setID2(obj.getString("id_2"));
+				    	panorama.setID3(obj.getString("id_3"));
+				    	panorama.setLugar1(obj.getString("lugar_1"));
+				    	panorama.setLugar2(obj.getString("lugar_2"));
+				    	panorama.setLugar3(obj.getString("lugar_3"));
+				    	panorama.setIMG(obj.getString("img"));
+
+
+				    	Log.v("Conexion", "Lugares -> ID :"+panorama.getID1()+" nombre :"+panorama.getIMG());
+				    	panoramas.add(panorama);
+				    }
+				    Log.v("Conexion", "Salio del for");
+				    
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+						
+						
+				
+			} catch (ClientProtocolException e) {
+
+			} catch (IOException e) {
+
+			}
+			
+			return panoramas;
 		}
 
 }

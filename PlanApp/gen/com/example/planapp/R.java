@@ -91,18 +91,20 @@ public final class R {
         public static final int activity_main_inicio=0x7f030001;
         public static final int activity_main_listar_panoramas=0x7f030002;
         public static final int activity_main_login=0x7f030003;
-        public static final int activity_main_panoramas=0x7f030004;
-        public static final int activity_main_profile=0x7f030005;
-        public static final int activity_main_registrar=0x7f030006;
-        public static final int activity_main_ver_panorama=0x7f030007;
-        public static final int row_listview_item=0x7f030008;
+        public static final int activity_main_lugares=0x7f030004;
+        public static final int activity_main_panoramas=0x7f030005;
+        public static final int activity_main_profile=0x7f030006;
+        public static final int activity_main_registrar=0x7f030007;
+        public static final int activity_main_ver_panorama=0x7f030008;
+        public static final int row_listview_item=0x7f030009;
     }
     public static final class menu {
         public static final int main_inicio=0x7f080000;
         public static final int main_listar_panoramas=0x7f080001;
-        public static final int main_panoramas=0x7f080002;
-        public static final int main_ver_panorama=0x7f080003;
-        public static final int menu_acompanante=0x7f080004;
+        public static final int main_lugares=0x7f080002;
+        public static final int main_panoramas=0x7f080003;
+        public static final int main_ver_panorama=0x7f080004;
+        public static final int menu_acompanante=0x7f080005;
     }
     public static final class string {
         public static final int Botonfecha=0x7f06000a;
@@ -143,6 +145,7 @@ public final class R {
         public static final int registrar=0x7f060006;
         public static final int sexo=0x7f06000b;
         public static final int title_activity_main_listar_panoramas=0x7f060027;
+        public static final int title_activity_main_lugares=0x7f060029;
         public static final int title_activity_main_panoramas=0x7f060026;
         public static final int title_activity_main_ver_panorama=0x7f060028;
         public static final int trabajo=0x7f06001b;
