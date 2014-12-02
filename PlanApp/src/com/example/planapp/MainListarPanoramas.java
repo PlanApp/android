@@ -30,11 +30,11 @@ public class MainListarPanoramas extends Activity {
     private String[] ids2;
     private String[] ids3;
     
-    private String[] lugares1;
-    private String[] lugares2;
-    private String[] lugares3;
+    private String[] lugares;
     
     private String [] img;
+    
+    private String [] titulos;
     
     
     /*
@@ -73,9 +73,9 @@ public class MainListarPanoramas extends Activity {
 		ids2 = new String[ids_2.size()];
 		ids3 = new String[ids_3.size()];
 		
-		lugares1 = new String[lugares_1.size()];
-		lugares2 = new String[lugares_2.size()];
-		lugares3 = new String[lugares_3.size()];
+		lugares = new String[lugares_1.size()];
+		
+		titulos =new String[ids_1.size()];
 		
 		img = new String[imagenes.size()];
 		
@@ -87,9 +87,8 @@ public class MainListarPanoramas extends Activity {
 		  ids1[i]=ids_1.get(i);
 		  ids2[i]=ids_2.get(i);
 		  ids3[i]=ids_3.get(i);
-		  lugares1[i]=lugares_1.get(i);
-		  lugares2[i]=lugares_2.get(i);
-		  lugares3[i]=lugares_3.get(i);
+		  titulos[i]="Panoramas     ";
+		  lugares[i]=lugares_1.get(i)+", "+lugares_2.get(i)+","+lugares_3.get(i);
 		  img[i]=imagenes.get(i);
 		}
 			
@@ -97,7 +96,7 @@ public class MainListarPanoramas extends Activity {
 		
 		Log.v("MainListarPanoramas","Imprimiendo lista");
 	    list=(ListView)findViewById(R.id.list);
-	    adapter=new LazyAdapter(MainListarPanoramas.this,lugares1, lugares2, lugares3, img);
+	    adapter=new LazyAdapter(MainListarPanoramas.this,titulos,lugares, img);
 	    list.setAdapter(adapter);
 	    
 	  //---PRESIONAR SOBRE UN ITEM DE LA LISTA---//
@@ -116,7 +115,6 @@ public class MainListarPanoramas extends Activity {
 	    		startActivity(ir_a);
 	    	}
 	    });
-	    
 	}
 
 	/*

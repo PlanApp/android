@@ -47,6 +47,10 @@ public class MainGenPanorama extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		
+		//--LOCALIZACIÓN--//
+		comenzarLocalizacion();
+		//-- FIN LOCALIZACIÓN--//
+		
 		//OBTENER DATOS DE LA OTRA VISTA
 		Intent info=getIntent();
 		id_usuario=info.getExtras().getString("id");
@@ -84,9 +88,7 @@ public class MainGenPanorama extends Activity {
         				@Override
         				public void onClick(View v) {
         					
-        					//--LOCALIZACIÓN--//
-        					comenzarLocalizacion();
-        					//-- FIN LOCALIZACIÓN--//
+
         					
 
         					

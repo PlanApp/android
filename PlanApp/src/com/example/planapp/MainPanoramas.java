@@ -65,6 +65,8 @@ public class MainPanoramas extends Activity {
 		getMenuInflater().inflate(R.menu.main_panoramas, menu);
 		
 
+		
+
 		//OBTENER DATOS DE LA OTRA VISTA
 		Intent info=getIntent();
 		acompanante=info.getExtras().getString("acompanante");

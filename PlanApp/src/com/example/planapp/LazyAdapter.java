@@ -14,18 +14,16 @@ import com.example.planapp.ImageLoader;
 public class LazyAdapter extends BaseAdapter {
      
     private Activity activity;
-    private String[] lugar1;
-    private String[] lugar2;
-    private String[] lugar3;
+    private String[] Titulo;
+    private String[] subtitulo;
     private String[] data;//IMAGEN
     private static LayoutInflater inflater=null;
     public ImageLoader imageLoader; 
      
-    public LazyAdapter(Activity a, String[] lugar_1,String[] lugar_2, String[] lugar_3, String[] img) {
+    public LazyAdapter(Activity a, String[] t,String[] subt, String[] img) {
         activity = a;
-        lugar1=lugar_1;
-        lugar2=lugar_2;
-        lugar3=lugar_3;
+        Titulo=t;
+        subtitulo=subt;
         data=img;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         imageLoader=new ImageLoader(activity.getApplicationContext());
@@ -51,8 +49,8 @@ public class LazyAdapter extends BaseAdapter {
         TextView titulo=(TextView)vi.findViewById(R.id.TextTitle);
         TextView sub_titulo=(TextView)vi.findViewById(R.id.TextSubTitle);
         ImageView image=(ImageView)vi.findViewById(R.id.image);
-        titulo.setText(position+" - Panorama          ");
-        sub_titulo.setText("Actividades :"+lugar1[position]+", "+lugar2[position]+", "+lugar3[position]);
+        titulo.setText(position+"-"+Titulo[position]);
+        sub_titulo.setText(subtitulo[position]);
         imageLoader.DisplayImage(data[position], image);
         return vi;
     }

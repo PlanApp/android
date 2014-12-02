@@ -97,7 +97,7 @@ class Conexion{
 		}
 
 	
-		public List<Lugar>  httpGetRecomendacionLugares(String id_usuario, String longitud, String latitud, String acompanante, String dinero){
+		public List<Lugar>  httpGetRecomendacionLugares(String id1, String id2, String id3){
 			
 			List<Lugar> lugares=new ArrayList<Lugar>();
 			
@@ -106,11 +106,9 @@ class Conexion{
 			HttpPost httppost = new HttpPost(url+"recomienda_lugares");
 			try {
 				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-				nameValuePairs.add(new BasicNameValuePair("id", id_usuario));
-				nameValuePairs.add(new BasicNameValuePair("longitud", longitud));
-				nameValuePairs.add(new BasicNameValuePair("latitud", latitud));
-				nameValuePairs.add(new BasicNameValuePair("acompanante", acompanante));
-				nameValuePairs.add(new BasicNameValuePair("dinero", dinero));
+				nameValuePairs.add(new BasicNameValuePair("id1", id1));
+				nameValuePairs.add(new BasicNameValuePair("id2", id2));
+				nameValuePairs.add(new BasicNameValuePair("id3", id3));
 				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 				Log.v("Conexion", "Espenado respuesta ...");
 				HttpResponse response = httpclient.execute(httppost);
