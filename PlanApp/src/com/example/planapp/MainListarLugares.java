@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class MainListarLugares extends Activity {
@@ -22,11 +23,13 @@ public class MainListarLugares extends Activity {
 	 private ArrayList<String> lista_descrip;
 	 private ArrayList<String> lista_tipo;
 	 
+	 private String id_usuario;
 	 private String[] nombre;
 	 private String[] image;
 	 //private String[] ids;
 	 //private String[] descrip;
 	 private String[] tipo;
+	 
 	 
 		//---new
 	 ListView list;
@@ -45,6 +48,29 @@ public class MainListarLugares extends Activity {
 		lista_ids=info.getStringArrayListExtra("ids");
 		lista_descrip=info.getStringArrayListExtra("descrip");
 		lista_tipo=info.getStringArrayListExtra("tipo");
+		id_usuario=info.getExtras().getString("id");
+		
+		//---BOTONES: Asociar Boton con una variable---//
+		Button boton_aceptar_panorama=(Button)findViewById(R.id.buttonAceptar);
+		
+		//Aceptar Panorama
+		boton_aceptar_panorama.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//CONEXION CON EL WEBSERVICE
+				new Thread(new Runnable() {
+			  	    public void run(){
+			  	    	//LLAMO A LA FUNCION QUE ENVIA LOS DATOS
+			  	    	Conexion conn=new Conexion();
+			  	    	conn.httpHistorico(id_usuario, lista_ids.get(0),  lista_ids.get(1),  lista_ids.get(2));
+			  	    }
+			  	    
+				  }).start();
+				
+			}
+		});
+		
+
 		
 		nombre = new String[lista_nombres.size()];
 		image = new String[lista_imagenes.size()];

@@ -23,6 +23,7 @@ public class MainLugares extends Activity {
 	String id1;
 	String id2;
 	String id3;
+	String id_usuario;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class MainLugares extends Activity {
 		id1=info.getExtras().getString("id_1");
 		id2=info.getExtras().getString("id_2");
 		id3=info.getExtras().getString("id_3");
+		id_usuario=info.getExtras().getString("id");
 		
 		//CONEXION CON EL WEBSERVICE
 		new Thread(new Runnable() {
@@ -65,6 +67,7 @@ public class MainLugares extends Activity {
 	  	    	ir_a.putStringArrayListExtra("ids", (ArrayList<String>)ids);
 	  	    	ir_a.putStringArrayListExtra("descrip", (ArrayList<String>)descrip);
 	  	    	ir_a.putStringArrayListExtra("tipo", (ArrayList<String>)tipo);
+	  	    	ir_a.putExtra("id", id_usuario);
 	  	    	//ir_a.putExtra("mail", user.getMail());
 	  	    	Log.v("MainPanoramas", "Va el intent MainListPanoramas");
 	  	    	startActivity(ir_a);		   							   		

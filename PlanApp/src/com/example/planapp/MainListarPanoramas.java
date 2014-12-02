@@ -36,6 +36,7 @@ public class MainListarPanoramas extends Activity {
     
     private String [] titulos;
     
+    String id_usuario;
     
     /*
     private String[] nombre;
@@ -67,6 +68,7 @@ public class MainListarPanoramas extends Activity {
 		lugares_2=info.getStringArrayListExtra("lugares_2");
 		lugares_3=info.getStringArrayListExtra("lugares_3");
 		imagenes=info.getStringArrayListExtra("imagenes");
+		id_usuario=info.getExtras().getString("id");
 		
 		//DEFINIR TAMANO ARREGLOS
 		ids1 = new String[ids_1.size()];
@@ -111,6 +113,7 @@ public class MainListarPanoramas extends Activity {
 	    		ir_a.putExtra("id_1", ids_1.get(position));
 	    		ir_a.putExtra("id_2", ids_2.get(position));
 	    		ir_a.putExtra("id_3", ids_3.get(position));
+	    		ir_a.putExtra("id", id_usuario);
 	    		Log.v("MainListarPanoramas","Apreto:"+(position));
 	    		startActivity(ir_a);
 	    	}

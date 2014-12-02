@@ -9,11 +9,19 @@
     tools:context="com.example.planapp.MainListarLugares" >
 
        <ListView
-        android:id="@+id/list"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:divider="@color/list_divider"
-        android:dividerHeight="1dp"
-        android:listSelector="@drawable/list_row_selector" />
+           android:id="@+id/list"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:divider="@color/list_divider"
+           android:dividerHeight="1dp"
+           android:listSelector="@drawable/list_row_selector" />
+
+       <Button
+           android:id="@+id/buttonAceptar"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentBottom="true"
+           android:layout_alignRight="@+id/list"
+           android:text="@string/aceptar_panorama" />
 
 </RelativeLayout>

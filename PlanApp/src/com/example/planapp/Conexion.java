@@ -224,5 +224,45 @@ class Conexion{
 			
 			return panoramas;
 		}
+		
+		
+		public void httpHistorico(String id_usuario, String id1, String id2, String id3) {
+			//Usuario u= new Usuario();
+			HttpClient httpclient = new DefaultHttpClient();
+			Log.v("Conexion", "Espenado respuesta ...");
+			HttpPost httppost = new HttpPost(url+"historico");
+			Log.v("Conexion","Datos:"+id_usuario+"-"+id1+"-"+id2+"-"+id3);
+			try {
+				Log.v("Conexion","Entro");
+				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+				nameValuePairs.add(new BasicNameValuePair("id_usuario", id_usuario));
+				nameValuePairs.add(new BasicNameValuePair("id1", id1));
+				nameValuePairs.add(new BasicNameValuePair("id2", id2));
+				nameValuePairs.add(new BasicNameValuePair("id3", id3));
+				Log.v("Conexion","Enviado los datos");
+				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+				HttpResponse response = httpclient.execute(httppost);
+				String responseAsText = EntityUtils.toString(response.getEntity());
+				Log.v("Conexion", "Respuesta :"+responseAsText);
+				/*
+					try {
+								//CAPTURA DE RESPUESTA
+								Log.v("Conexion", "Transformando el JSON");
+								JSONObject json = new JSONObject(responseAsText);
+								u.setEdo(json.getString("edo"));
+								Log.v("Conexion","Seteando respuesta en edo");
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					*/
+			} catch (ClientProtocolException e) {
+
+			} catch (IOException e) {
+
+			}
+		Log.v("Conexion","Fin Registro");
+		//return u;
+		}
 
 }

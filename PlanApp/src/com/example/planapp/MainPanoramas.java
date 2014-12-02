@@ -116,6 +116,7 @@ public class MainPanoramas extends Activity {
 				ir_a.putStringArrayListExtra("lugares_2", (ArrayList<String>) lugares_2);
 				ir_a.putStringArrayListExtra("lugares_3", (ArrayList<String>) lugares_3);
 				ir_a.putStringArrayListExtra("imagenes", (ArrayList<String>)imagenes);
+				ir_a.putExtra("id", id_usuario);
 				//ir_a.putExtra("mail", user.getMail());
 				Log.v("MainPanoramas", "Va el intent MainListPanoramas");
 				startActivity(ir_a);
