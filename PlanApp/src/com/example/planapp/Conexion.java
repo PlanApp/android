@@ -55,31 +55,35 @@ class Conexion{
     	}
 		return u;
     }
-
-
+    
 
 		public Usuario httpRegistro(String mail, String nombre, String pass, String fecha_naci, String sexo) {
 			Usuario u= new Usuario();
 			HttpClient httpclient = new DefaultHttpClient();
 			Log.v("Conexion", "Espenado respuesta ...");
 			HttpPost httppost = new HttpPost(url+"registro");
-
+			Log.v("Conexion","Datos:"+mail+"-"+nombre+"-"+pass+"-"+fecha_naci+"-"+sexo);
 			try {
+				Log.v("Conexion","Entro");
 				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 				nameValuePairs.add(new BasicNameValuePair("mail", mail));
 				nameValuePairs.add(new BasicNameValuePair("nombre", nombre));
 				nameValuePairs.add(new BasicNameValuePair("password", pass));
 				nameValuePairs.add(new BasicNameValuePair("fecha_nacimiento", fecha_naci));
 				nameValuePairs.add(new BasicNameValuePair("sexo", sexo));
+				Log.v("Conexion","Enviado los datos");
 				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
 				HttpResponse response = httpclient.execute(httppost);
 				String responseAsText = EntityUtils.toString(response.getEntity());
+				Log.v("Conexion", "Respuesta :"+responseAsText);
 
 					try {
 								//CAPTURA DE RESPUESTA
+								Log.v("Conexion", "Transformando el JSON");
 								JSONObject json = new JSONObject(responseAsText);
 								u.setEdo(json.getString("edo"));
+								Log.v("Conexion","Seteando respuesta en edo");
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
@@ -88,8 +92,11 @@ class Conexion{
 			} catch (IOException e) {
 
 			}
+		Log.v("Conexion","Retornando respuesta");
 		return u;
 		}
+
+    
 
 	
 		public List<Lugar>  httpGetRecomendacion(String id_usuario, String longitud, String latitud, String acompanante, String dinero){

@@ -62,9 +62,7 @@ public class MainRegistrar extends Activity {
 					   		//VEO LA RESPUESTA DE LA FUNCION DE LOGIN
 							if(user.getEdo().toString().equals("ok")){
 								//CAMBIA DE VISTA SI LOS DATOS SON CORRECTOS
-								Intent ir_a = new Intent (MainRegistrar.this, MainGenPanorama.class);
-								ir_a.putExtra("id", user.getID());
-								ir_a.putExtra("mail", user.getMail());
+								Intent ir_a = new Intent (MainRegistrar.this, MainLogin.class);
 								Log.d("MainLogin", "Va el intent");
 								startActivity(ir_a);
 							}
